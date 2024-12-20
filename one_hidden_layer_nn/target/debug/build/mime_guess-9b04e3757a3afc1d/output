@@ -1,0 +1,1 @@
+cargo:rustc-env=MIME_TYPES_GENERATED_PATH=/workspaces/Planar_data_classification_with_one_hidden_layer_RUST/one_hidden_layer_nn/target/debug/build/mime_guess-9b04e3757a3afc1d/out/mime_types_generated.rs

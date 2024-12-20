@@ -1,6 +1,6 @@
 use crate::helper::generate_spiral_planar_dataset;
 use log::info;
-use ndarray::{Array2};
+use ndarray::Array2;
 
 pub fn injest() -> (Array2<f32>, Array2<u8>) {
     /*
@@ -10,22 +10,22 @@ pub fn injest() -> (Array2<f32>, Array2<u8>) {
         none
 
         Return:
-        X -- (2, 400) array 
+        X -- (2, 400) array
         Y -- (1, 400) array
     */
 
-    let (X, Y) = generate_spiral_planar_dataset(); // Loading data
+    let (x, y) = generate_spiral_planar_dataset(); // Loading data
 
-    let shape_X = X.shape();
-    let shape_Y = Y.shape();
-    let m = shape_Y[1];
+    let shape_x = x.shape();
+    let shape_y = y.shape();
+    let m = shape_y[1];
 
-    println!("The shape of X is: {:?}", shape_X);
-    println!("The shape of Y is: {:?}", shape_Y);
+    println!("The shape of x is: {:?}", shape_x);
+    println!("The shape of y is: {:?}", shape_y);
     println!("There are m = {:?} training examples ", m);
 
-    info!("The shape of X is: {:?}", shape_X);
-    info!("The shape of Y is: {:?}", shape_Y);
+    info!("The shape of x is: {:?}", shape_x);
+    info!("The shape of y is: {:?}", shape_y);
     info!("There are m = {:?} training examples ", m);
 
     /*
@@ -34,8 +34,5 @@ pub fn injest() -> (Array2<f32>, Array2<u8>) {
         plt.savefig('myPlots/load_planar_dataset.png')
     */
 
-    (
-        X, 
-        Y 
-    )
+    (x, y)
 }
