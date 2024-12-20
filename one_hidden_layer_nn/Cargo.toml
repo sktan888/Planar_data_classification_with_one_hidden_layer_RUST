@@ -1,0 +1,11 @@
+[package]
+name = "one_hidden_layer_nn"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+log = "0.4.22"
+fern = "0.7.0"
+chrono = "0.4.38"
+rand = "0.8.5"
+ndarray = "0.16.1"
