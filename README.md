@@ -1,3 +1,5 @@
+ [![Clippy Rust Lint with Github Actions](https://github.com/sktan888/Planar_data_classification_with_one_hidden_layer_RUST/actions/workflows/main.yml/badge.svg)](https://github.com/sktan888/Planar_data_classification_with_one_hidden_layer_RUST/actions/workflows/main.yml)
+
 # Planar_data_classification_with_one_hidden_layer_RUST
 RUST implementation of one layer neural network for planar data classification
 
