@@ -15,6 +15,14 @@ pub fn plot(x: &Array2<f32>, y: &Array2<u8>){
 
     // Normalize colors to a range of 0.0 to 1.0
     let normalized_colors: Vec<f64> = colors.iter().map(|&c| (c as f64)).collect();
+
+    let trace = Scatter::new(x1.clone(), x2.clone())
+    .name("trace")
+    .mode(plotly::common::Mode::Markers)
+    .marker(plotly::common::Marker::new()
+    .color(normalized_colors)
+    .size(10));
+
     /*
     let trace = Scatter::new(x1.clone(), x2.clone())
         .mode(plotly::common::Mode::Markers)
@@ -23,13 +31,13 @@ pub fn plot(x: &Array2<f32>, y: &Array2<u8>){
             .color(normalized_colors)
             .color_scale(plotly::common::ColorScale::Viridis));
     */
-    let trace = Scatter::new(x1.clone(), x2.clone())
-                .name("trace");
+
 
     let mut plot = Plot::new();
     plot.add_trace(trace);
-    plot.show(); // Show the plot in a browser window
-    plot.write_image("./out.png", ImageFormat::PNG, 1024, 680, 1.0);
+    let html = plot.to_html();
+    let mut file = File::create("my_plot.html").expect("Error creating file");
+    file.write_all(html.as_bytes()).expect("Error writing to file");
     // Plotly is a helpful tool when building interact web applications in Rust
 }
 
@@ -57,33 +65,60 @@ pub fn generate_spiral_planar_dataset() -> (Array2<f32>, Array2<u8>) {
         // generate data for 2 classes
 
         // r is the radius, and t is the angle in radians
-        // t = np.linspace(j*3.12,(j+1)*3.12,N) + np.random.randn(N)*0.2
-        // r = a*np.sin(4*t) + np.random.randn(N)*0.2
 
+        // np.random.randn(N)*0.2
         let mut rng = thread_rng(); // creates a thread-local random number generator
         let random_numbers: Vec<f32> = (0..n) // N random numbers collected into a vector Vec<f64>
             .map(|_| rng.gen::<f32>() * 0.2) // scale the random number by multiplying it with 0.2
             .collect();
+        // info!("random_numbers for t is: {:?}", random_numbers);
 
+        // t = np.linspace(j*3.12,(j+1)*3.12,N)  
         let start = j as f32 * 3.12;
         let end = (j as f32 + 1.0) * 3.12;
         let t = linspace(start, end, n);
         let mut t: Vec<f32> = t.collect();
 
-        let start = a as f32 * ((4.0 * j as f32 * 3.12).sin());
-        let end = a as f32 * ((4.0 * (j as f32 + 1.0) * 3.12).sin());
-        let r = linspace(start, end, n);
-        let mut r: Vec<f32> = r.collect();
-
-        // iterate over each element in random numbers vector
+        // iterate t vector and add random values
+        // t = np.linspace(j*3.12,(j+1)*3.12,N) + np.random.randn(N)*0.2
+        
         random_numbers
             .iter()
             .enumerate()
             .for_each(|(index, value)| {
                 t[index] += *value; // add random value to t for theta angle
-                r[index] += *value; // add random value to r for radii
             });
+            
 
+        // r = a*np.sin(4*t)
+        let mut r: Vec<f32> = t.clone();
+        // let mut rr: f32=0.0;
+
+        let mut modified_r = Vec::with_capacity(r.len());
+        r.iter().enumerate().for_each(|(index, value)| {
+            let rr = *value * 4.0;
+            modified_r.push((a as f32) * rr.sin());
+        });
+        r = modified_r;
+        // info!("r is: {:?}", r);
+
+        // iterate r vector and add random values
+        // r = a*np.sin(4*t) + np.random.randn(N)*0.2
+
+        let random_numbers: Vec<f32> = (0..n) // N random numbers collected into a vector Vec<f64>
+        .map(|_| rng.gen::<f32>() * 0.2) // scale the random number by multiplying it with 0.2
+        .collect();
+
+        //info!("random_numbers for r is: {:?}", random_numbers);
+
+        random_numbers
+            .iter()
+            .enumerate()
+            .for_each(|(index, value)| {
+                r[index] += *value; 
+            });
+        // info!("r is: {:?}", r);
+        
         // stacking column-wise vector of coordinates (r*np.sin(t), r*np.cos(t)) vertically into a single array, where each row rep a point
         let mut tx: f32=0.0;
         let mut rx: f32=0.0;
@@ -105,5 +140,8 @@ pub fn generate_spiral_planar_dataset() -> (Array2<f32>, Array2<u8>) {
 
     let xt = x.t().to_owned();
     let yt = y.t().to_owned();
+
+    //info!("xt is: {:?}", xt);
+    // info!("yt is: {:?}", yt);
     (xt, yt)
 }

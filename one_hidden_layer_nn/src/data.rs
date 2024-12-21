@@ -28,11 +28,5 @@ pub fn injest() -> (Array2<f32>, Array2<u8>) {
     info!("The shape of y is: {:?}", shape_y);
     info!("There are m = {:?} training examples ", m);
 
-    /*
-        # Visualize the data:
-        plt.scatter(X[0, :], X[1, :], c=Y, s=40, cmap=plt.colormaps.get_cmap("viridis"))
-        plt.savefig('myPlots/load_planar_dataset.png')
-    */
-
     (x, y)
 }
