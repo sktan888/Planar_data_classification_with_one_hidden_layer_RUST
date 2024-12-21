@@ -2,46 +2,90 @@ use ndarray::{array, linspace, Array1, Array2};
 use rand::thread_rng;
 use rand::Rng;
 use log::info;
-use plotly::{Plot, Scatter, ImageFormat};
-use plotly::common::ColorScale;
 use std::fs::File;
 use std::io::Write;
 
+use plotly::{
+    color::{NamedColor, Rgb, Rgba, Color},
+    common::{
+        ColorScale, ColorScalePalette, DashType, Fill, Font, Line, LineShape, Marker, Mode,
+        Orientation, Pattern, PatternShape,
+    },
+    layout::{Axis, BarMode, CategoryOrder, Layout, Legend, TicksDirection, TraceOrder},
+    sankey::{Line as SankeyLine, Link, Node},
+    traces::table::{Cells, Header},
+    Bar, Plot, Sankey, Scatter, ScatterPolar, Table, ImageFormat,
+};
 
-pub fn plot(x: &Array2<f32>, y: &Array2<u8>){
+pub fn plot(x: &Array2<f32>, y: &Array2<f32>){
     let x1: Vec<f32> = x.row(0).to_vec(); // First row of X
     let x2: Vec<f32> = x.row(1).to_vec();  // Second row of X
-    let colors: Vec<u8> = y.row(0).to_vec();  // Values for coloring
+    let colors: Vec<f32> = y.row(0).to_vec();  // Values for coloring
 
-    // Normalize colors to a range of 0.0 to 1.0
-    let normalized_colors: Vec<f64> = colors.iter().map(|&c| (c as f64)).collect();
+    // the first half of x1 and x2 for first label 1 and 2 respectively
+    let half_len = x1.len() / 2; 
+    let label1_x1: Vec<f32> = x1[0..half_len].to_vec(); 
+    let label1_x2: Vec<f32> = x2[0..half_len].to_vec(); 
 
-    let trace = Scatter::new(x1.clone(), x2.clone())
-    .name("trace")
-    .mode(plotly::common::Mode::Markers)
-    .marker(plotly::common::Marker::new()
-    .color(normalized_colors)
-    .size(10));
+    let label2_x1: Vec<f32> = x1[half_len..x1.len()].to_vec(); 
+    let label2_x2: Vec<f32> = x2[half_len..x1.len()].to_vec(); 
+    // Paint red for 0 and blue for 1
+    let trace1 = Scatter::new(label1_x1.clone(), label1_x2.clone())
+    .name("red:0")
+    .mode(Mode::Markers)
+    .marker(Marker::new()
+    .color(NamedColor::Red).size(8)); 
 
-    /*
-    let trace = Scatter::new(x1.clone(), x2.clone())
-        .mode(plotly::common::Mode::Markers)
-        .marker(plotly::common::Marker::new()
-            .size(10)
-            .color(normalized_colors)
-            .color_scale(plotly::common::ColorScale::Viridis));
-    */
-
+    let trace2 = Scatter::new(label2_x1.clone(), label2_x2.clone())
+    .name("blue:1")
+    .mode(Mode::Markers)
+    .marker(Marker::new()
+    .color(NamedColor::Blue).size(8)); 
 
     let mut plot = Plot::new();
-    plot.add_trace(trace);
+    plot.add_trace(trace1);
+    plot.add_trace(trace2);
+
+    let layout = Layout::new()
+    .title("Flower Data")
+    .width(500)
+    .height(500)
+    .x_axis(
+        Axis::new()
+        .title("x1")
+        .grid_color(Rgb::new(211, 211, 211))
+        .range(vec![-4.0, 4.0])
+        .show_grid(true)
+        .show_line(true)
+        .show_tick_labels(true)
+        .tick_color(Rgb::new(127, 127, 127))
+        .ticks(TicksDirection::Outside)
+        .zero_line(false),
+    )
+    .y_axis(
+        Axis::new()
+        .title("x2")
+        .grid_color(Rgb::new(211, 211, 211))
+        .range(vec![-4.0, 4.0])
+        .show_grid(true)
+        .show_line(true)
+        .show_tick_labels(true)
+        .tick_color(Rgb::new(127, 127, 127))
+        .ticks(TicksDirection::Outside)
+        .zero_line(false),
+    );
+    //.x_axis(Axis::new().title("x1").range(vec![-4.0, 4.0]))
+    //.y_axis(Axis::new().title("x2").range(vec![-4.0, 4.0]));
+    plot.set_layout(layout);
+
+
     let html = plot.to_html();
-    let mut file = File::create("my_plot.html").expect("Error creating file");
+    let mut file = File::create("./plots/flower_dataset.html").expect("Error creating file");
     file.write_all(html.as_bytes()).expect("Error writing to file");
-    // Plotly is a helpful tool when building interact web applications in Rust
+
 }
 
-pub fn generate_spiral_planar_dataset() -> (Array2<f32>, Array2<u8>) {
+pub fn generate_spiral_planar_dataset() -> (Array2<f32>, Array2<f32>) {
     /*
         Generate spiral-shaped  data
 
@@ -58,7 +102,7 @@ pub fn generate_spiral_planar_dataset() -> (Array2<f32>, Array2<u8>) {
     const n: usize = m / 2; // number of points per class
     let d = 2; // number of columns in X
     let mut x: Array2<f32> = Array2::zeros((m, d)); // m rows of points and D columns of coordinates
-    let mut y: Array2<u8> = Array2::zeros((m, 1)); // labels vector (0 for red, 1 for blue)
+    let mut y: Array2<f32> = Array2::zeros((m, 1)); // labels vector (0.0 for red, 1.0 for blue)
     let a = 4; // # maximum ray of the flower, length of petal
 
     for j in 0..2 {
@@ -134,7 +178,7 @@ pub fn generate_spiral_planar_dataset() -> (Array2<f32>, Array2<u8>) {
             }
             x[[ix, 0]] = rx * (tx.sin());
             x[[ix, 1]] = rx * (tx.cos());
-            y[[ix, 0]] = j as u8;
+            y[[ix, 0]] = j as f32;
         }
     }
 

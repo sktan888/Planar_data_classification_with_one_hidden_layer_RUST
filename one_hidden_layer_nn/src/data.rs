@@ -2,7 +2,7 @@ use crate::helper::generate_spiral_planar_dataset;
 use log::info;
 use ndarray::Array2;
 
-pub fn injest() -> (Array2<f32>, Array2<u8>) {
+pub fn injest() -> (Array2<f32>, Array2<f32>) {
     /*
         Load dataset
 
