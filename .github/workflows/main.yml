@@ -16,5 +16,5 @@ jobs:
                     override: true
 
             - name: Run clippy
-              working-directory: /Planar_data_classification_with_one_hidden_layer_RUST/one_hidden_layer_nn
+              working-directory: ./one_hidden_layer_nn
               run: cargo clippy --quiet
