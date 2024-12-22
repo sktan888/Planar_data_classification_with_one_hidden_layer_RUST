@@ -13,3 +13,5 @@ plotly = { version = "0.11.0", features = ["kaleido"] }
 linfa = "0.7.0"
 linfa-logistic = "0.7.0"
 linfa-datasets = { version = "0.7.0", features = ["winequality"] } 
+ndarray-npy = "0.9.1"
+npy = "0.4.0"

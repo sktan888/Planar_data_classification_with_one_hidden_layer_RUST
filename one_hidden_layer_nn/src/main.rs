@@ -2,7 +2,7 @@
 // use log::info;
 use log::LevelFilter;
 use one_hidden_layer_nn::data::injest;
-use one_hidden_layer_nn::helper::linfa_logistic_regression;
+//use one_hidden_layer_nn::helper::linfa_logistic_regression;
 use one_hidden_layer_nn::helper::plot;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
