@@ -23,7 +23,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let (x, y) = injest();
     plot(&x, &y);
-    let _ = linfa_logistic_regression();
+    //let _ = linfa_logistic_regression();
     //clf = fit_logistic_regression_model(X, Y);
     //plot_decision_boundary(clf, X, Y);
     //compute_accuracy(clf, X, Y);

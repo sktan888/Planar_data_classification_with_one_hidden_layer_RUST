@@ -19,6 +19,34 @@ use std::error::Error;
 use std::fs::File;
 use std::io::Write;
 
+use ndarray::{arr2, Array2};
+use ndarray_npy::read_npy;
+use ndarray_npy::write_npy;
+use ndarray_npy::ReadNpyExt;
+use ndarray_npy::WriteNpyExt;
+use npy::NpyData;
+use std::env;
+
+use ndarray::ErrorKind;
+use ndarray::ShapeError;
+use std::error::Error;
+use std::num::ParseFloatError;
+
+use ndarray_npy::ReadNpyError;
+use ndarray_npy::WriteNpyError;
+use std::convert::From;
+
+
+#[derive(Debug)]
+enum Errors {
+    ShapeError(ShapeError),
+    ParseFloatError(ParseFloatError),
+    ReadNpyError(ReadNpyError),
+    WriteNpyError(WriteNpyError),
+    ImageError(ImageError),
+    IoError(std::io::Error),
+}
+
 /*
 use plotly::{
     color::{Color, NamedColor, Rgb, Rgba},
@@ -32,6 +60,63 @@ use plotly::{
     Bar, ImageFormat, Plot, Sankey, Scatter, ScatterPolar, Table,
 };
 */
+
+fn create_array(b: f32) -> Result<Array2<f32>, Errors> {
+    /* let result = Array2::from_shape_vec((1, 1), vec![b]).map_err(Errors::ShapeError);
+    result */
+    Array2::from_shape_vec((1, 1), vec![b]).map_err(Errors::ShapeError)
+}
+
+fn fit_logistic_regression_model(x: &Array2<f32>,y: &Array2<f32>,) -> Result<(), Errors> {
+    /*
+    This function fits the logistic regression model according to the given training data
+
+    Argument:
+    X -- (n_features, n_samples) matrix (2, 400) representing 400 points, 2 (x1, x2) coordindates
+    Y -- (n_label, n_samples) matrix (1, 400) representing label: red (0.0) and blue (1.0)
+
+    Returns:
+    model 
+    */
+
+    let (_train_x, _train_y, _test_x, _test_y) = (x, y, x, y);
+    let _num_iterations = 2000;
+    let _learning_rate = 0.005;
+    let print_cost = true;
+    let _costs: Vec<f32> = Vec::new(); // Create an empty vector
+
+    let _b = 0.0;
+
+    let _y_prediction_test = create_array(_b)?;
+    let _y_prediction_train = create_array(_b)?;
+    let _w = create_array(_b)?;
+
+    let (costs, _y_prediction_test, _y_prediction_train, _w, _b, _learning_rate, _num_iterations) =
+        model(
+            &_train_x,
+            &_train_y,
+            &_test_x,
+            &_test_y,
+            _num_iterations,
+            _learning_rate,
+            print_cost,
+        );
+
+    let b_array = create_array(_b)?;
+
+    // overwrite the file if it exists
+    let _ = write_npy("model_weights.npy", &_w).map_err(|_| Errors::WriteNpyError);
+    let _ = write_npy("model_bias.npy", &b_array).map_err(|_| Errors::WriteNpyError);
+    let _ = write_npy("test_set_x.npy", &_test_x).map_err(|_| Errors::WriteNpyError);
+    let _ = write_npy("test_set_y.npy", &_y_prediction_test).map_err(|_| Errors::WriteNpyError);
+
+    //info!("main model_cmd: b {:?}.", b_array);
+    // info!("main model_cmd: w {:?}.", _w);
+    // info!("main model_cmd w shape {:?}", _w.shape());
+    //info!("main model_cmd: cost {:?}.", costs);
+
+    Ok(())
+}
 
 pub fn linfa_logistic_regression() -> Result<(), Box<dyn Error>> {
     // everything above 6.5 is considered a good wine
@@ -70,29 +155,6 @@ pub fn linfa_logistic_regression() -> Result<(), Box<dyn Error>> {
 
     info!("The shape of train is: {:?}", shape_train);
 
-    Ok(())
-}
-
-pub fn fit_logistic_regression_model(
-    _x: &Array2<f32>,
-    _y: &Array2<f32>,
-) -> Result<(), Box<dyn Error>> {
-    /*
-    This function fits the logistic regression model according to the given training data
-
-    Argument:
-    X -- (n_features, n_samples) matrix (2, 400) representing 400 points, 2 (x1, x2) coordindates
-    Y -- (n_label, n_samples) matrix (1, 400) representing label: red (0.0) and blue (1.0)
-
-    Returns:
-    clf -- classifier object for the fitted LogisticRegressionCV estimator
-    */
-
-    /*
-    clf.fit(
-        X.T, Y.T.ravel()
-    )  # X.T is (n_samples, n_features) Y.T is (n_labels, n_samples) .. ravel() changes shape of y from (n_labels, n_samples) to (,n_samples)
-    */
     Ok(())
 }
 
