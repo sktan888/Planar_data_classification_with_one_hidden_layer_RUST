@@ -1,7 +1,8 @@
-use fern::Dispatch;
+// use fern::Dispatch;
+// use log::info;
 use log::LevelFilter;
-use log::{info};
 use one_hidden_layer_nn::data::injest;
+use one_hidden_layer_nn::helper::linfa_logistic_regression;
 use one_hidden_layer_nn::helper::plot;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -21,6 +22,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .apply();
 
     let (x, y) = injest();
-    plot(&x,&y);
+    plot(&x, &y);
+    let _ = linfa_logistic_regression();
+    //clf = fit_logistic_regression_model(X, Y);
+    //plot_decision_boundary(clf, X, Y);
+    //compute_accuracy(clf, X, Y);
+
     Ok(())
 }
