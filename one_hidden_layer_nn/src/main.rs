@@ -21,7 +21,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .chain(fern::log_file("info.log")?)
         .apply();
 
-    let (x, y) = injest();
+    let m = 400; // number of examples or points
+    let a = 4; // maximum ray of the flower, length of petal
+    let (x, y) = injest(m, a);
     plot(&x, &y);
     //let _ = linfa_logistic_regression();
     //clf = fit_logistic_regression_model(X, Y);
