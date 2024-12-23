@@ -16,7 +16,5 @@ pub fn injest(m: usize, a: i32) -> (Array2<f32>, Array2<f32>) {
 
     let (x, y) = generate_flower_planar_dataset(m, a); // Loading data
 
-
-
     (x, y)
 }

@@ -54,18 +54,18 @@ pub struct GradientDescentResults {
 }
 
 pub struct ModelResults {
-    costs: Vec<f32>,
-    y_prediction_test: Array2<f32>,
-    y_prediction_train: Array2<f32>,
-    w: Array2<f32>,
-    b: f32,
-    learning_rate: f32,
-    num_iterations: i32,
+    pub costs: Vec<f32>,
+    pub y_prediction_test: Array2<f32>,
+    pub y_prediction_train: Array2<f32>,
+    pub w: Array2<f32>,
+    pub b: f32,
+    pub learning_rate: f32,
+    pub num_iterations: i32,
 }
 
 pub struct PredictionResults {
-    y_prediction_train: Array2<f32>, 
-    y_prediction_test: Array2<f32>, 
+    y_prediction_train: Array2<f32>,
+    y_prediction_test: Array2<f32>,
 }
 /*
 use plotly::{
@@ -87,9 +87,14 @@ fn create_array(b: f32) -> Result<Array2<f32>, Errors> {
     Array2::from_shape_vec((1, 1), vec![b]).map_err(Errors::ShapeError)
 }
 
-
-pub fn fit_logistic_regression_model(train_x: &Array2<f32>, train_y: &Array2<f32>, test_x: &Array2<f32>, test_y: &Array2<f32>) 
--> Result<(), Errors> {
+pub fn fit_logistic_regression_model(
+    train_x: &Array2<f32>,
+    train_y: &Array2<f32>,
+    test_x: &Array2<f32>,
+    test_y: &Array2<f32>,
+) -> Result<(ModelResults), Errors> {
+    //) -> Result<(ModelResults), Errors> {
+    //) -> Result<(), Errors> {
     /*
     This function fits the logistic regression model according to the given training data
 
@@ -102,55 +107,69 @@ pub fn fit_logistic_regression_model(train_x: &Array2<f32>, train_y: &Array2<f32
     */
 
     //let (_train_x, _train_y, _test_x, _test_y) = (x, y, x, y);
-    let _num_iterations = 2000;
-    let _learning_rate = 0.005;
+    let num_iterations = 2000;
+    let learning_rate = 0.005;
     let print_cost = true;
-    let _costs: Vec<f32> = Vec::new(); // Create an empty vector
+    let costs: Vec<f32> = Vec::new(); // Create an empty vector
 
-    let _b = 0.0;
+    let b = 0.0;
 
-    let _y_prediction_test = create_array(_b)?;
-    let _y_prediction_train = create_array(_b)?;
-    let _w = create_array(_b)?;
+    let y_prediction_test = create_array(b)?;
+    let y_prediction_train = create_array(b)?;
+    let w = create_array(b)?;
 
     //let (_costs, _y_prediction_test, _y_prediction_train, _w, _b, _learning_rate, _num_iterations) =
-    let model_result =
-        model(
-            train_x,
-            train_y,
-            test_x,
-            test_y,
-            _num_iterations,
-            _learning_rate,
-            print_cost,
-        );
+    let model_result = model(
+        train_x,
+        train_y,
+        test_x,
+        test_y,
+        num_iterations,
+        learning_rate,
+        print_cost,
+    );
 
-    // Handle model_results 
+    // Handle model_results
     match model_result {
-        Ok(model_results) => { 
-            // Process the successful predictions 
-            let (_costs, _y_prediction_test, _y_prediction_train, _w, _b, _learning_rate, _num_iterations) = 
-            (model_results.costs,model_results.y_prediction_test,model_results.y_prediction_train,model_results.w,model_results.b,model_results.learning_rate,model_results.num_iterations);
-        
-            let b_array = create_array(_b)?;
-        
-            // overwrite the file if it exists
-            let _ = write_npy("./model/model_weights.npy", &_w).map_err(|_| Errors::WriteNpyError);
-            let _ = write_npy("./model/model_bias.npy", &b_array).map_err(|_| Errors::WriteNpyError);
-            let _ = write_npy("./model/y_prediction_train.npy", &_y_prediction_train).map_err(|_| Errors::WriteNpyError);
-            let _ = write_npy("./model/y_prediction_test.npy", &_y_prediction_test).map_err(|_| Errors::WriteNpyError);
+        Ok(model_results) => {
+            // Process the successful predictions
+            let (costs, y_prediction_test, y_prediction_train, w, b, learning_rate, num_iterations) = (
+                model_results.costs,
+                model_results.y_prediction_test,
+                model_results.y_prediction_train,
+                model_results.w,
+                model_results.b,
+                model_results.learning_rate,
+                model_results.num_iterations,
+            );
 
-        },
+            let b_array = create_array(b)?;
+
+            // overwrite the file if it exists
+            let _ = write_npy("./model/model_weights.npy", &w).map_err(|_| Errors::WriteNpyError);
+            let _ =
+                write_npy("./model/model_bias.npy", &b_array).map_err(|_| Errors::WriteNpyError);
+            let _ = write_npy("./model/y_prediction_train.npy", &y_prediction_train)
+                .map_err(|_| Errors::WriteNpyError);
+            let _ = write_npy("./model/y_prediction_test.npy", &y_prediction_test)
+                .map_err(|_| Errors::WriteNpyError);
+        }
         Err(error) => {
-            // Handle the error 
-            eprintln!("Error modeling: {:?}", error); 
+            // Handle the error
+            eprintln!("Error modeling: {:?}", error);
         }
     }
 
-
-    Ok(())
+    Ok(ModelResults {
+        costs,
+        y_prediction_test,
+        y_prediction_train,
+        w,
+        b,
+        learning_rate,
+        num_iterations,
+    })
 }
-
 
 pub fn sigmoid(z: Array2<f32>) -> Array2<f32> {
     /*
@@ -237,8 +256,6 @@ pub fn propagate(
     (dw, db, cost)
 }
 
-
-
 pub fn optimize(
     w: &Array2<f32>,
     b: f32,
@@ -248,8 +265,6 @@ pub fn optimize(
     learning_rate: f32,
     print_cost: bool,
 ) -> Result<GradientDescentResults, Box<dyn std::error::Error>> {
-//) -> Result<(Array2<f32>, f32, Array2<f32>, f32, Vec<f32>), Box<dyn std::error::Error>> {
-  
     // (Array2<f32>, f32, Array2<f32>, f32, Vec<f32>)
     /*
     This function optimizes w and b by running a gradient descent algorithm
@@ -301,27 +316,17 @@ pub fn optimize(
         }
     }
 
-    Ok( GradientDescentResults {
+    Ok(GradientDescentResults {
         w: w_owned,
         b: b_owned,
         dw,
         db,
         costs,
     })
-    /*
-    Ok( GradientDescentResults {
-        w: w_owned,
-        b: b_owned,
-        dw: dw,
-        db: db,
-        costs: costs,
-    }) */
-    // Ok((results))
-    //Ok((w_owned, b_owned, dw, db, costs))
 }
 
 pub fn predict(w: &Array2<f32>, b: f32, x: &Array2<f32>) -> Result<Array2<f32>, Errors> {
-//pub fn predict(w: &Array2<f32>, b: f32, x: &Array2<f32>) -> Array2<f32> {
+    //pub fn predict(w: &Array2<f32>, b: f32, x: &Array2<f32>) -> Array2<f32> {
     /*
     Predict whether the label is 0 or 1 using learned logistic regression parameters (w, b)
 
@@ -341,7 +346,6 @@ pub fn predict(w: &Array2<f32>, b: f32, x: &Array2<f32>) -> Result<Array2<f32>, 
     assert_eq!(w.shape(), &[x.shape()[0], 1]);
 
     let _ = w.to_shape((x.shape()[0], 1)).map_err(Errors::ShapeError);
-
 
     let a = sigmoid((w.t()).dot(x) + b);
 
@@ -365,18 +369,8 @@ pub fn model(
     y_test: &Array2<f32>,
     num_iterations: i32,
     learning_rate: f32,
-    print_cost: bool,) -> Result<ModelResults, Errors> {
-//-> ModelResults {
-/*
-) -> (
-    Vec<f32>,
-    Array2<f32>,
-    Array2<f32>,
-    Array2<f32>,
-    f32,
-    f32,
-    i32,
-) { */
+    print_cost: bool,
+) -> Result<ModelResults, Errors> {
     /*
     Builds the logistic regression model by calling the function you've implemented previously
 
@@ -409,15 +403,14 @@ pub fn model(
     # Y_prediction_train = ...
     */
 
-    let mut prediction_data = PredictionResults { 
+    let mut prediction_data = PredictionResults {
         y_prediction_train: y_train.clone(),
         y_prediction_test: y_test.clone(),
-    }; 
+    };
 
     let (w, b) = initialize_with_zeros(x_train.shape()[0]);
 
     let Ok(results) = optimize(
-    //let Ok((w, b, _dw, _db, costs)) = optimize(
         &w,
         b,
         x_train,
@@ -429,99 +422,63 @@ pub fn model(
         todo!()
     };
 
-
-    let (w,b,_dw,_db,costs) = (results.w,results.b,results.dw,results.db,results.costs);
+    let (w, b, _dw, _db, costs) = (results.w, results.b, results.dw, results.db, results.costs);
 
     let y_prediction_test_result = predict(&w, b, x_test);
     let y_prediction_train_result = predict(&w, b, x_train);
 
-
-    // Handle y_prediction_test_result 
+    // Handle y_prediction_test_result
     match y_prediction_test_result {
-        Ok(predictions) => { 
-            // Process the successful predictions 
+        Ok(predictions) => {
+            // Process the successful predictions
             prediction_data.y_prediction_test = predictions;
-        },
+        }
         Err(error) => {
-            // Handle the error 
-            eprintln!("Error predicting test data: {:?}", error); 
+            // Handle the error
+            eprintln!("Error predicting test data: {:?}", error);
         }
     }
 
-    // Handle y_prediction_train_result 
+    // Handle y_prediction_train_result
     match y_prediction_train_result {
-        Ok(predictions) => { 
-            // Process the successful predictions 
+        Ok(predictions) => {
+            // Process the successful predictions
             prediction_data.y_prediction_train = predictions;
-        },
+        }
         Err(error) => {
-            // Handle the error 
-            eprintln!("Error predicting test data: {:?}", error); 
+            // Handle the error
+            eprintln!("Error predicting test data: {:?}", error);
         }
     }
 
-    if print_cost{
-         // Refactor with References: If you only need to read the data from prediction_data.y_prediction_train, consider using a reference (&) to avoid unnecessary moves:
-      
+    if print_cost {
+        // Refactor with References: If you only need to read the data from prediction_data.y_prediction_train, consider using a reference (&) to avoid unnecessary moves:
+
         match (&prediction_data.y_prediction_train - y_train).abs().mean() {
-            Some(mean) => 
-            {
-                println!(
-                    "train accuracy: {:.2}",
-                    100.0*(1.0 -  mean)
-                );
-                info!(
-                    "train accuracy: {:.2}",
-                    100.0*(1.0 -  mean)
-                );
-            },
-            None => { 
-                // Handle the case where the mean is None 
+            Some(mean) => {
+                println!("train accuracy: {:.2}", 100.0 * (1.0 - mean));
+                info!("train accuracy: {:.2}", 100.0 * (1.0 - mean));
+            }
+            None => {
+                // Handle the case where the mean is None
                 // (e.g., return an error, use a default value)
                 // (0.0) // Or another appropriate default value
-            },
+            }
         }
 
         // Refactor with References: If you only need to read the data from prediction_data.y_prediction_train, consider using a reference (&) to avoid unnecessary moves:
         match (&prediction_data.y_prediction_test - y_test).abs().mean() {
-            Some(mean) => 
-            {
-                println!(
-                    "test accuracy: {:.2}",
-                    100.0*(1.0 -  mean)
-                );
-                info!(
-                    "test accuracy: {:.2}",
-                    100.0*(1.0 -  mean)
-                );
-            },
-            None => { 
-                // Handle the case where the mean is None 
+            Some(mean) => {
+                println!("test accuracy: {:.2}", 100.0 * (1.0 - mean));
+                info!("test accuracy: {:.2}", 100.0 * (1.0 - mean));
+            }
+            None => {
+                // Handle the case where the mean is None
                 // (e.g., return an error, use a default value)
                 // (0.0) // Or another appropriate default value
-            },
+            }
         }
     }
-    /*
-    if print_cost {
-        println!(
-            "train accuracy: {:.2}",
-            100.0*(1.0 - (y_prediction_train - y_train).abs().mean())
-        );
-        println!(
-            "test accuracy: {:.2}",
-            100.0*(1.0 - (y_prediction_test - y_test).abs().mean())
-        );
-        info!(
-            "train accuracy: {:.2}",
-            100.0*(1.0 - (y_prediction_train - y_train).abs().mean())
-        );
-        info!(
-            "test accuracy: {:.2}",
-            100.0*(1.0 - (y_prediction_test - y_test).abs().mean())
-        );
-    }; */
-
 
     Ok(ModelResults {
         costs,
@@ -532,19 +489,7 @@ pub fn model(
         learning_rate,
         num_iterations,
     })
-
-    /*
-    (
-        costs,
-        y_prediction_test,
-        y_prediction_train,
-        w,
-        b,
-        learning_rate,
-        num_iterations,
-    ) */
 }
-
 
 pub fn linfa_logistic_regression() -> Result<(), Box<dyn Error>> {
     // everything above 6.5 is considered a good wine
@@ -586,7 +531,22 @@ pub fn linfa_logistic_regression() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-pub fn plot(x: &Array2<f32>, _y: &Array2<f32>, a:i32, plot_title: &str) {
+pub fn plot_decision_boundary(x: &Array2<f32>, model: ModelResults, plot_title: &str) {
+    /*
+    This function plots the contour of decision boundar according to the trained model
+
+    Argument:
+    model --
+    input data X -- (n_features, n_samples)
+
+
+    Returns:
+    a file of plot
+
+    */
+}
+
+pub fn plot(x: &Array2<f32>, _y: &Array2<f32>, a: i32, plot_title: &str) {
     /*
         Plot data
 
@@ -662,8 +622,8 @@ pub fn plot(x: &Array2<f32>, _y: &Array2<f32>, a:i32, plot_title: &str) {
 
     let str1 = "./plots/";
     let str2 = ".html";
-    let joined_string = format!("{}{}", str1, plot_title); 
-    let path = format!("{}{}", joined_string, str2); 
+    let joined_string = format!("{}{}", str1, plot_title);
+    let path = format!("{}{}", joined_string, str2);
     let mut file = File::create(path).expect("Error creating file");
     //let mut file = File::create("./plots/flower_dataset.html").expect("Error creating file");
     file.write_all(html.as_bytes())
