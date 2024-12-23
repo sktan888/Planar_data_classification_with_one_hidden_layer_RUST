@@ -19,24 +19,24 @@ use std::error::Error;
 use std::fs::File;
 use std::io::Write;
 
-use ndarray::arr2;
-use ndarray_npy::read_npy;
+//use ndarray::arr2;
+//use ndarray_npy::read_npy;
 use ndarray_npy::write_npy;
-use ndarray_npy::ReadNpyExt;
-use ndarray_npy::WriteNpyExt;
-use npy::NpyData;
-use std::env;
+//use ndarray_npy::ReadNpyExt;
+//use ndarray_npy::WriteNpyExt;
+//use npy::NpyData;
+//use std::env;
 
-use ndarray::ErrorKind;
+//use ndarray::ErrorKind;
 use ndarray::ShapeError;
 use std::num::ParseFloatError;
 
 use ndarray_npy::ReadNpyError;
 use ndarray_npy::WriteNpyError;
-use std::convert::From;
+//use std::convert::From;
 
 #[derive(Debug)]
-enum Errors {
+pub enum Errors {
     ShapeError(ShapeError),
     ParseFloatError(ParseFloatError),
     ReadNpyError(ReadNpyError),
@@ -64,19 +64,21 @@ fn create_array(b: f32) -> Result<Array2<f32>, Errors> {
     Array2::from_shape_vec((1, 1), vec![b]).map_err(Errors::ShapeError)
 }
 
-fn fit_logistic_regression_model(x: &Array2<f32>, y: &Array2<f32>) -> Result<(), Errors> {
+
+pub fn fit_logistic_regression_model(train_x: &Array2<f32>, train_y: &Array2<f32>, test_x: &Array2<f32>, test_y: &Array2<f32>) 
+-> Result<(), Errors> {
     /*
     This function fits the logistic regression model according to the given training data
 
     Argument:
-    X -- (n_features, n_samples) matrix (2, 400) representing 400 points, 2 (x1, x2) coordindates
-    Y -- (n_label, n_samples) matrix (1, 400) representing label: red (0.0) and blue (1.0)
+    X -- (n_features, n_samples) matrix where features refer to planar coordindates
+    Y -- (n_label, n_samples) matrix labels refer to red (0.0) and blue (1.0)
 
     Returns:
     model
     */
 
-    let (_train_x, _train_y, _test_x, _test_y) = (x, y, x, y);
+    //let (_train_x, _train_y, _test_x, _test_y) = (x, y, x, y);
     let _num_iterations = 2000;
     let _learning_rate = 0.005;
     let print_cost = true;
@@ -88,12 +90,12 @@ fn fit_logistic_regression_model(x: &Array2<f32>, y: &Array2<f32>) -> Result<(),
     let _y_prediction_train = create_array(_b)?;
     let _w = create_array(_b)?;
 
-    let (costs, _y_prediction_test, _y_prediction_train, _w, _b, _learning_rate, _num_iterations) =
+    let (_costs, _y_prediction_test, _y_prediction_train, _w, _b, _learning_rate, _num_iterations) =
         model(
-            _train_x,
-            _train_y,
-            _test_x,
-            _test_y,
+            train_x,
+            train_y,
+            test_x,
+            test_y,
             _num_iterations,
             _learning_rate,
             print_cost,
@@ -102,17 +104,15 @@ fn fit_logistic_regression_model(x: &Array2<f32>, y: &Array2<f32>) -> Result<(),
     let b_array = create_array(_b)?;
 
     // overwrite the file if it exists
-    let _ = write_npy("model_weights.npy", &_w).map_err(|_| Errors::WriteNpyError);
-    let _ = write_npy("model_bias.npy", &b_array).map_err(|_| Errors::WriteNpyError);
-    let _ = write_npy("test_set_x.npy", _test_x).map_err(|_| Errors::WriteNpyError);
-    let _ = write_npy("test_set_y.npy", &_y_prediction_test).map_err(|_| Errors::WriteNpyError);
-
-    //info!("main model_cmd: b {:?}.", b_array);
+    let _ = write_npy("./model/model_weights.npy", &_w).map_err(|_| Errors::WriteNpyError);
+    let _ = write_npy("./model/model_bias.npy", &b_array).map_err(|_| Errors::WriteNpyError);
+    let _ = write_npy("./model/y_prediction_train.npy", &_y_prediction_train).map_err(|_| Errors::WriteNpyError);
+    let _ = write_npy("./model/y_prediction_test.npy", &_y_prediction_test).map_err(|_| Errors::WriteNpyError);
 
     Ok(())
 }
 
-//pub fn sigmoid(z: f32) -> f32 {
+
 pub fn sigmoid(z: Array2<f32>) -> Array2<f32> {
     /*
     Compute the sigmoid of z as 1 / (1 + np.exp(-z))
@@ -252,7 +252,8 @@ pub fn optimize(
             costs.push(cost);
 
             if print_cost {
-                println!("Cost after iteration {:?}: {:?} {:?}", i, cost, b_owned);
+                println!("Cost after iteration {:?}: {:?}", i, cost);
+                info!("Cost after iteration {:?}: {:?}", i, cost);
             }
         }
     }
@@ -363,12 +364,20 @@ pub fn model(
 
     if print_cost {
         println!(
-            "train accuracy: {:?}",
-            100.0 - ((&y_prediction_train - y_train).abs()).mean().unwrap() * 100.0
+            "train accuracy: {:.2}",
+            (100.0 - ((&y_prediction_train - y_train).abs()).mean().unwrap() * 100.0).round()
         );
         println!(
-            "test accuracy: {:?}",
-            100.0 - ((&y_prediction_test - y_test).abs()).mean().unwrap() * 100.0
+            "test accuracy: {:.2}",
+            (100.0 - ((&y_prediction_test - y_test).abs()).mean().unwrap() * 100.0).round()
+        );
+        info!(
+            "train accuracy: {:.2}",
+            (100.0 - ((&y_prediction_train - y_train).abs()).mean().unwrap() * 100.0).round()
+        );
+        info!(
+            "test accuracy: {:.2}",
+            (100.0 - ((&y_prediction_test - y_test).abs()).mean().unwrap() * 100.0).round()
         );
     }
 
@@ -423,13 +432,14 @@ pub fn linfa_logistic_regression() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-pub fn plot(x: &Array2<f32>, _y: &Array2<f32>) {
+pub fn plot(x: &Array2<f32>, _y: &Array2<f32>, a:i32, plot_title: &str) {
     /*
         Plot data
 
         Arguments:
         X -- (2, 400) array
         Y -- (1, 400) array
+        a - integer length of flower petal
 
         Return:
         plot saved into a .html file in folder plots
@@ -440,7 +450,7 @@ pub fn plot(x: &Array2<f32>, _y: &Array2<f32>) {
                                           //let colors: Vec<f32> = y.row(0).to_vec(); // Values for coloring
 
     // the first half of x1 and x2 for first label 1 and 2 respectively
-    let half_len = x1.len() / 2;
+    let half_len = x1.len() / 2; // assume 2 classes of equal len
     let label1_x1: Vec<f32> = x1[0..half_len].to_vec();
     let label1_x2: Vec<f32> = x2[0..half_len].to_vec();
 
@@ -462,14 +472,16 @@ pub fn plot(x: &Array2<f32>, _y: &Array2<f32>) {
     plot.add_trace(trace2);
 
     let layout = Layout::new()
-        .title("Flower Data")
+        .title(plot_title)
+        //.title("Flower Data")
         .width(500)
         .height(500)
         .x_axis(
             Axis::new()
                 .title("x1")
                 .grid_color(Rgb::new(211, 211, 211))
-                .range(vec![-4.0, 4.0])
+                //.range(vec![-4.0, 4.0])
+                .range(vec![-a, a])
                 .show_grid(true)
                 .show_line(true)
                 .show_tick_labels(true)
@@ -481,7 +493,8 @@ pub fn plot(x: &Array2<f32>, _y: &Array2<f32>) {
             Axis::new()
                 .title("x2")
                 .grid_color(Rgb::new(211, 211, 211))
-                .range(vec![-4.0, 4.0])
+                //.range(vec![-4.0, 4.0])
+                .range(vec![-a, a])
                 .show_grid(true)
                 .show_line(true)
                 .show_tick_labels(true)
@@ -492,7 +505,13 @@ pub fn plot(x: &Array2<f32>, _y: &Array2<f32>) {
     plot.set_layout(layout);
 
     let html = plot.to_html();
-    let mut file = File::create("./plots/flower_dataset.html").expect("Error creating file");
+
+    let str1 = "./plots/";
+    let str2 = ".html";
+    let joined_string = format!("{}{}", str1, plot_title); 
+    let path = format!("{}{}", joined_string, str2); 
+    let mut file = File::create(path).expect("Error creating file");
+    //let mut file = File::create("./plots/flower_dataset.html").expect("Error creating file");
     file.write_all(html.as_bytes())
         .expect("Error writing to file");
 }
@@ -601,12 +620,13 @@ pub fn generate_spiral_planar_dataset() -> (Array2<f32>, Array2<f32>) {
     (xt, yt)
 }
 
-pub fn generate_flower_planar_dataset(m: i32, a: i32) -> (Array2<f32>, Array2<f32>) {
+pub fn generate_flower_planar_dataset(m: usize, a: i32) -> (Array2<f32>, Array2<f32>) {
     /*
         Generate spiral-shaped  data
 
         Arguments:
-        none
+        m: number of points or examples
+        a:amplitude or length of petal
 
         Return:
         X -- (2, 400) array
@@ -616,8 +636,8 @@ pub fn generate_flower_planar_dataset(m: i32, a: i32) -> (Array2<f32>, Array2<f3
     // generate spiral-shaped data points
     // const M: usize = 400; // number of examples or points
     // const N: usize = M / 2; // number of points per class
-    let n = m / 2 as i32;
-    let d = 2; // number of columns in X
+    let n = m / 2; // 2 classes of equal number of examples
+    let d = 2; // assuming 2 = number of columns in X
     let mut x: Array2<f32> = Array2::zeros((m, d)); // m rows of points and D columns of coordinates
     let mut y: Array2<f32> = Array2::zeros((m, 1)); // labels vector (0.0 for red, 1.0 for blue)
                                                     // let a = 4; // # maximum ray of the flower, length of petal
