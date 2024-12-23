@@ -23,8 +23,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Prepare datasets
     let a = 10; // maximum ray of the flower, length of petal
-    let m = 1000; // number of examples or points of train dataset
-    let (train_x, train_y) = injest(m, a);
+    let m_train = 1000; // number of examples or points of train dataset
+    let (train_x, train_y) = injest(m_train, a);
 
     let shape_x = train_x.shape();
     let shape_y = train_y.shape();
@@ -38,13 +38,20 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     info!("The shape of y is: {:?}", shape_y);
     info!("There are m = {:?} training examples ", m_examples);
 
-    let m = 100; // number of examples or points of test dataset
-    let (test_x, test_y) = injest(m, a);
+
+    let m_test = 100; // number of examples or points of test dataset
+    let (test_x, test_y) = injest(m_test, a);
 
     let shape_x = test_x.shape();
     let shape_y = test_y.shape();
     let m_examples = shape_y[1];
 
+    /*
+    let prediction_data = PredictionResults { 
+        y_prediction_train: Array2::zeros((m_train, 1)).t(), 
+        y_prediction_test: Array2::zeros((m_test, 1)).t(),
+    }; 
+    */
     println!("The shape of x is: {:?}", shape_x);
     println!("The shape of y is: {:?}", shape_y);
     println!("There are m = {:?} testing examples ", m_examples);
