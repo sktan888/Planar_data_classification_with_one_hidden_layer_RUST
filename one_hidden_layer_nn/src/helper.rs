@@ -6,7 +6,7 @@ use linfa::prelude::ToConfusionMatrix;
 use linfa::traits::Fit;
 use linfa_logistic::LogisticRegression;
 
-use ndarray::{linspace, Array2};
+use ndarray::{linspace, Array2, Array1};
 use plotly::{
     color::{NamedColor, Rgb},
     common::{Marker, Mode},
@@ -34,6 +34,9 @@ use std::num::ParseFloatError;
 use ndarray_npy::ReadNpyError;
 use ndarray_npy::WriteNpyError;
 //use std::convert::From;
+
+use std::iter::Zip;
+use ndarray::Axis as OtherAxis;
 
 #[derive(Debug)]
 pub enum Errors {
@@ -533,18 +536,99 @@ pub fn linfa_logistic_regression() -> Result<(), Box<dyn Error>> {
 
 pub fn plot_decision_boundary(x: &Array2<f32>, model: ModelResults, plot_title: &str) {
     /*
-    This function plots the contour of decision boundar according to the trained model
+    This function plots the contour of decision boundary of the trained model
 
     Argument:
-    model --
-    input data X -- (n_features, n_samples)
-
+    model -- predict a 2D grid of points
+    input data X -- (n_features, n_samples) scatter plot of inputs over contour
+    plot_title -- name of plot
 
     Returns:
     a file of plot
 
     */
+
+    // Set min and max values and some padding
+    // Find the minimum value in each row
+    let row = x.row(0).to_owned();
+    let mut x_min = 0.0 as f32;
+    x_min = find_minimum(&row);
+
+    let mut x_max = 0.0 as f32;
+    x_max = find_maximum(&row);
+
+    let row = x.row(1).to_owned();
+    let mut y_min = 0.0 as f32;
+    y_min = find_minimum(&row);
+
+    let mut y_max = 0.0 as f32;
+    y_max = find_maximum(&row);
+
+    let h: usize = x.shape()[1] as usize; // number of columns
+    let x = linspace(x_min, x_max, h);
+    let mut x: Array1<f32> = x.collect();
+
+    let y = linspace(y_min, y_max, h);
+    let mut y: Array1<f32> = y.collect();
+
+    // Generate a 2D grid of points with distance h between them
+    let (xx, yy) = meshgrid(&x, &y);
+    
+    info!("meshgrid xx is: {:?} ", xx );
+    info!("meshgrid yy is: {:?} ", yy );
+
+    // Predict the function value for the whole grid
+    // Z = model.predict(np.c_[xx.ravel(), yy.ravel()])
+
+    // Plot the contour and training examples
+
+    // plt.savefig("plots/decision_boundary.png")
 }
+
+fn find_minimum(row: &Array1<f32>) -> f32 {
+    let mut x_min = 0.0 as f32;
+    row.iter()
+    .enumerate()
+    .for_each(|(index, &value)| {
+        if  value < x_min  {
+            x_min = value;
+        }
+    });
+    x_min -= 1.0;
+
+    x_min
+}
+
+fn find_maximum(row: &Array1<f32>) -> f32 {
+    let mut x_max = 0.0 as f32;
+    row.iter()
+    .enumerate()
+    .for_each(|(index, &value)| {
+        if  value > x_max  {
+            x_max = value;
+        }
+    });
+    x_max += 1.0;
+
+    x_max
+}
+
+fn meshgrid(x: &Array1<f32>, y: &Array1<f32>) -> (Array2<f32>, Array2<f32>) {
+    let (nx, ny) = (x.len(), y.len());
+    let mut xx = Array2::zeros((ny, nx));
+    let mut yy = Array2::zeros((ny, nx));
+
+    for (i, &x_val) in x.iter().enumerate() {
+        xx.row_mut(i).fill(x_val);
+    }
+
+    for (i, &y_val) in y.iter().enumerate() {
+        yy.row_mut(i).fill(y_val);
+    }
+    
+    (xx, yy)
+}
+
 
 pub fn plot(x: &Array2<f32>, _y: &Array2<f32>, a: i32, plot_title: &str) {
     /*
