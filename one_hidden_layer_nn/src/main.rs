@@ -27,7 +27,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Prepare datasets
     let a = 10; // maximum ray of the flower, length of petal
-    let m_train = 1000; // number of examples or points of train dataset
+    let m_train = 180; // number of examples or points of train dataset
+    let train_test_split_ratio = 3;
+    let m_test = m_train / train_test_split_ratio; // number of examples or points of test dataset
+
     let (train_x, train_y) = injest(m_train, a);
 
     let shape_x = train_x.shape();
@@ -42,7 +45,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     info!("The shape of y is: {:?}", shape_y);
     info!("There are m = {:?} training examples ", m_examples);
 
-    let m_test = 100; // number of examples or points of test dataset
+
     let (test_x, test_y) = injest(m_test, a);
 
     let shape_x = test_x.shape();
@@ -98,6 +101,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     //compute_accuracy(modelLR, train_y, test_y);
 
-    simple_contour_plot(plot_title);
+    //simple_contour_plot(plot_title);
     Ok(())
 }

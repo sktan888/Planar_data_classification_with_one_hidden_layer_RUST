@@ -605,6 +605,40 @@ pub fn plot_decision_boundary(x: &Array2<f32>, model: ModelResults, plot_title: 
 
     let mut plot = Plot::new();
     plot.add_trace(trace3);
+
+    let layout = Layout::new()
+    .title(plot_title)
+    .width(500)
+    .height(500)
+    .x_axis(
+        Axis::new()
+            .title("x1")
+            .grid_color(Rgb::new(211, 211, 211))
+            //.range(vec![-4.0, 4.0])
+            //.range(vec![-a, a])
+            .show_grid(true)
+            .show_line(true)
+            .show_tick_labels(true)
+            .tick_color(Rgb::new(127, 127, 127))
+            .ticks(TicksDirection::Outside)
+            .zero_line(false),
+    )
+    .y_axis(
+        Axis::new()
+            .title("x2")
+            .grid_color(Rgb::new(211, 211, 211))
+            //.range(vec![-4.0, 4.0])
+            //.range(vec![-a, a])
+            .show_grid(true)
+            .show_line(true)
+            .show_tick_labels(true)
+            .tick_color(Rgb::new(127, 127, 127))
+            .ticks(TicksDirection::Outside)
+            .zero_line(false),
+    );
+
+    plot.set_layout(layout);
+
     let html = plot.to_html();
 
     let str1 = "./plots/";
@@ -967,7 +1001,6 @@ pub fn simple_contour_plot(plot_title: &str) {
     let mut x = Vec::<f64>::new();
     let mut y = Vec::<f64>::new();
     let mut z: Vec<Vec<f64>> = Vec::new();
-    
 
     for index in 0..n {
         let value = -2.0 * 3.0 + 4.0 * 3.0 * (index as f64) / (n as f64);
