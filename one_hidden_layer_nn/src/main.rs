@@ -6,6 +6,7 @@ use one_hidden_layer_nn::data::injest;
 use one_hidden_layer_nn::helper::fit_logistic_regression_model;
 use one_hidden_layer_nn::helper::plot;
 use one_hidden_layer_nn::helper::plot_decision_boundary;
+use one_hidden_layer_nn::helper::simple_contour_plot;
 use one_hidden_layer_nn::helper::ModelResults;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -87,15 +88,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             eprintln!("Error modeling: {:?}", error);
         }
     }
-    
-    info!("main train_x shape is: {:?} ", train_x.shape() );
-    info!("main model.w shape is: {:?} ", modelLR.w.shape() );
-    info!("main model.b is: {:?} ", modelLR.b );
+
+    info!("main train_x shape is: {:?} ", train_x.shape());
+    info!("main model.w shape is: {:?} ", modelLR.w.shape());
+    info!("main model.b is: {:?} ", modelLR.b);
 
     let plot_title = "decision boundary";
     plot_decision_boundary(&train_x, modelLR, plot_title);
 
     //compute_accuracy(modelLR, train_y, test_y);
 
+    simple_contour_plot(plot_title);
     Ok(())
 }

@@ -6,12 +6,12 @@ use linfa::prelude::ToConfusionMatrix;
 use linfa::traits::Fit;
 use linfa_logistic::LogisticRegression;
 
-use ndarray::{linspace, Array2, Array1};
+use ndarray::{linspace, Array1, Array2};
 use plotly::{
     color::{NamedColor, Rgb},
     common::{Marker, Mode},
     layout::{Axis, Layout, TicksDirection},
-    Plot, Scatter, Contour, 
+    Contour, Plot, Scatter,
 };
 use rand::thread_rng;
 use rand::Rng;
@@ -35,8 +35,8 @@ use ndarray_npy::ReadNpyError;
 use ndarray_npy::WriteNpyError;
 //use std::convert::From;
 
-use std::iter::Zip;
 use ndarray::Axis as OtherAxis;
+use std::iter::Zip;
 
 #[derive(Debug)]
 pub enum Errors {
@@ -136,7 +136,15 @@ pub fn fit_logistic_regression_model(
     match model_result {
         Ok(model_results) => {
             // Process the successful predictions
-            (costs, y_prediction_test, y_prediction_train, w, b, learning_rate, num_iterations) = (
+            (
+                costs,
+                y_prediction_test,
+                y_prediction_train,
+                w,
+                b,
+                learning_rate,
+                num_iterations,
+            ) = (
                 model_results.costs,
                 model_results.y_prediction_test,
                 model_results.y_prediction_train,
@@ -572,26 +580,26 @@ pub fn plot_decision_boundary(x: &Array2<f32>, model: ModelResults, plot_title: 
 
     // Generate a 2D grid of points with distance h between them
     let xx = meshgrid(&x, &y); // xx is (features,number of points) (2,m)
-    info!("meshgrid xx shape is: {:?} ", xx.shape() ); 
+    info!("meshgrid xx shape is: {:?} ", xx.shape());
 
     // Predict the function value for the whole grid
     // x -- data of size (features_flatterned, number of examples)
     let predict_result = predict(&model.w, model.b, &xx);
-    
-    let mut z: Array2<f32> = Array2::zeros((1, xx.shape()[1])); 
+
+    let mut z: Array2<f32> = Array2::zeros((1, xx.shape()[1]));
     match predict_result {
         Ok(results) => {
             // Process the successful predictions
             z = results; // <Array2<f32>
-            info!("meshgrid prediction shape is: {:?} ", z.shape() ); 
-            info!("meshgrid prediction is: {:?} ", z ); 
+            info!("meshgrid prediction shape is: {:?} ", z.shape());
+            info!("meshgrid prediction is: {:?} ", z);
         }
         Err(error) => {
             // Handle the error
             eprintln!("Error modeling: {:?}", error);
         }
     }
-    
+
     // Plot the contour and training examples
     let trace3 = Contour::new(xx.row(0).to_vec(), xx.row(1).to_vec(), z.into_raw_vec());
 
@@ -610,10 +618,8 @@ pub fn plot_decision_boundary(x: &Array2<f32>, model: ModelResults, plot_title: 
 
 fn find_minimum(row: &Array1<f32>) -> f32 {
     let mut x_min = 0.0 as f32;
-    row.iter()
-    .enumerate()
-    .for_each(|(index, &value)| {
-        if  value < x_min  {
+    row.iter().enumerate().for_each(|(index, &value)| {
+        if value < x_min {
             x_min = value;
         }
     });
@@ -624,10 +630,8 @@ fn find_minimum(row: &Array1<f32>) -> f32 {
 
 fn find_maximum(row: &Array1<f32>) -> f32 {
     let mut x_max = 0.0 as f32;
-    row.iter()
-    .enumerate()
-    .for_each(|(index, &value)| {
-        if  value > x_max  {
+    row.iter().enumerate().for_each(|(index, &value)| {
+        if value > x_max {
             x_max = value;
         }
     });
@@ -638,8 +642,8 @@ fn find_maximum(row: &Array1<f32>) -> f32 {
 
 fn meshgrid(x: &Array1<f32>, y: &Array1<f32>) -> Array2<f32> {
     /*
-    This function generates 2D grid of points 
-    
+    This function generates 2D grid of points
+
     Argument:
     x -- single array of grid value along x axis x feature
     y -- single array of grid value along y axis y feature
@@ -647,24 +651,23 @@ fn meshgrid(x: &Array1<f32>, y: &Array1<f32>) -> Array2<f32> {
     Returns:
     2D array (number of features, number of points) ... (2,1000)
 
-    */    
+    */
     let (nx, ny) = (x.len(), y.len());
-    let mut xx:  Array2<f32> = Array2::zeros((2, nx));
+    let mut xx: Array2<f32> = Array2::zeros((2, nx));
 
     //let mut xx = Array2::zeros((ny, nx));
     //let mut yy = Array2::zeros((ny, nx));
 
     for (i, &x_val) in x.iter().enumerate() {
-        xx[[0,i]] = x_val;
+        xx[[0, i]] = x_val;
     }
 
     for (i, &y_val) in y.iter().enumerate() {
-        xx[[1,i]] = y_val;
+        xx[[1, i]] = y_val;
     }
-    
+
     xx
 }
-
 
 pub fn plot(x: &Array2<f32>, _y: &Array2<f32>, a: i32, plot_title: &str) {
     /*
@@ -957,4 +960,43 @@ pub fn generate_flower_planar_dataset(m: usize, a: i32) -> (Array2<f32>, Array2<
     //info!("xt is: {:?}", xt);
     //info!("yt is: {:?}", yt);
     (xt, yt)
+}
+
+pub fn simple_contour_plot(plot_title: &str) {
+    let n = 200;
+    let mut x = Vec::<f64>::new();
+    let mut y = Vec::<f64>::new();
+    let mut z: Vec<Vec<f64>> = Vec::new();
+    
+
+    for index in 0..n {
+        let value = -2.0 * 3.0 + 4.0 * 3.0 * (index as f64) / (n as f64);
+        x.push(value);
+        y.push(value);
+    }
+
+    y.iter().take(n).for_each(|y| {
+        let mut row = Vec::<f64>::new();
+        x.iter().take(n).for_each(|x| {
+            let radius_squared = x.powf(2.0) + y.powf(2.0);
+            let zv = x.sin() * y.cos() * radius_squared.sin() / (radius_squared + 1.0).log10();
+            row.push(zv);
+        });
+        z.push(row);
+    });
+
+    let trace = Contour::new(x, y, z);
+    let mut plot = Plot::new();
+
+    plot.add_trace(trace);
+
+    let html = plot.to_html();
+
+    let str1 = "./plots/";
+    let str2 = ".html";
+    let joined_string = format!("{}{}", str1, plot_title);
+    let path = format!("{}{}", joined_string, str2);
+    let mut file = File::create(path).expect("Error creating file");
+    file.write_all(html.as_bytes())
+        .expect("Error writing to file");
 }

@@ -388,3 +388,37 @@
 24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
 24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] meshgrid prediction shape is: [1, 1000] 
 24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] meshgrid prediction is: [[1.0, 1.0, 1.0, 1.0, 1.0, ..., 0.0, 0.0, 0.0, 0.0, 0.0]], shape=[1, 1000], strides=[1000, 1], layout=CFcf (0xf), const ndim=2 
+24-12-2024 11:00:15 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 11:00:15 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 11:00:15 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 11:00:15 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 11:00:15 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 11:00:15 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 11:00:15 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 11:00:16 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.6421075
+24-12-2024 11:00:16 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.64189243
+24-12-2024 11:00:16 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.64188904
+24-12-2024 11:00:16 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.6418873
+24-12-2024 11:00:16 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.6418861
+24-12-2024 11:00:16 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.641885
+24-12-2024 11:00:16 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.64188415
+24-12-2024 11:00:16 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.64188343
+24-12-2024 11:00:16 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.64188296
+24-12-2024 11:00:16 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.64188254
+24-12-2024 11:00:17 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.6418821
+24-12-2024 11:00:17 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.64188194
+24-12-2024 11:00:17 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.6418817
+24-12-2024 11:00:17 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.6418815
+24-12-2024 11:00:17 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.6418814
+24-12-2024 11:00:17 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.6418813
+24-12-2024 11:00:17 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.6418812
+24-12-2024 11:00:17 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.6418812
+24-12-2024 11:00:18 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.64188105
+24-12-2024 11:00:18 [INFO] [one_hidden_layer_nn::helper] train accuracy: 48.80
+24-12-2024 11:00:18 [INFO] [one_hidden_layer_nn::helper] test accuracy: 45.00
+24-12-2024 11:00:18 [INFO] [one_hidden_layer_nn] main train_x shape is: [2, 1000] 
+24-12-2024 11:00:18 [INFO] [one_hidden_layer_nn] main model.w shape is: [2, 1] 
+24-12-2024 11:00:18 [INFO] [one_hidden_layer_nn] main model.b is: -0.01023016 
+24-12-2024 11:00:18 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
+24-12-2024 11:00:18 [INFO] [one_hidden_layer_nn::helper] meshgrid prediction shape is: [1, 1000] 
+24-12-2024 11:00:18 [INFO] [one_hidden_layer_nn::helper] meshgrid prediction is: [[1.0, 1.0, 1.0, 1.0, 1.0, ..., 0.0, 0.0, 0.0, 0.0, 0.0]], shape=[1, 1000], strides=[1000, 1], layout=CFcf (0xf), const ndim=2 
