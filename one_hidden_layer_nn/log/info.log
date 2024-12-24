@@ -1,106 +1,390 @@
-23-12-2024 07:13:02 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
-23-12-2024 07:13:02 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
-23-12-2024 07:13:02 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
-23-12-2024 07:13:02 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
-23-12-2024 07:13:02 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
-23-12-2024 07:13:02 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
-23-12-2024 07:13:02 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
-23-12-2024 07:13:02 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.6423138
-23-12-2024 07:13:03 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.64210045
-23-12-2024 07:13:03 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.6420991
-23-12-2024 07:13:03 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.64209867
-23-12-2024 07:13:03 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.6420988
-23-12-2024 07:13:03 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.6420986
-23-12-2024 07:13:03 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.6420986
-23-12-2024 07:13:03 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.6420985
-23-12-2024 07:13:03 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.6420985
-23-12-2024 07:13:03 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.64209837
-23-12-2024 07:13:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.64209837
-23-12-2024 07:13:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.64209837
-23-12-2024 07:13:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.64209837
-23-12-2024 07:13:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.6420983
-23-12-2024 07:13:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.64209837
-23-12-2024 07:13:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.6420983
-23-12-2024 07:13:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.64209825
-23-12-2024 07:13:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.6420983
-23-12-2024 07:13:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.6420982
-23-12-2024 07:13:04 [INFO] [one_hidden_layer_nn::helper] train accuracy: 50.00
-23-12-2024 07:13:04 [INFO] [one_hidden_layer_nn::helper] test accuracy: 48.00
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.63867044
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.6384179
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.6384157
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.63841546
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.6384154
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.63841516
-23-12-2024 10:11:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.63841504
-23-12-2024 10:11:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.63841504
-23-12-2024 10:11:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.63841486
-23-12-2024 10:11:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.6384148
-23-12-2024 10:11:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.63841474
-23-12-2024 10:11:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.6384146
-23-12-2024 10:11:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.63841474
-23-12-2024 10:11:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.6384146
-23-12-2024 10:11:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.6384146
-23-12-2024 10:11:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.6384147
-23-12-2024 10:11:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.63841456
-23-12-2024 10:11:07 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.63841456
-23-12-2024 10:11:07 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.63841456
-23-12-2024 10:11:07 [INFO] [one_hidden_layer_nn::helper] train accuracy: 49.00
-23-12-2024 10:11:07 [INFO] [one_hidden_layer_nn::helper] test accuracy: 45.00
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.6444933
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.64430386
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.6443019
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.64430106
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.6443005
-24-12-2024 00:49:38 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.64430016
-24-12-2024 00:49:39 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.6442997
-24-12-2024 00:49:39 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.64429945
-24-12-2024 00:49:39 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.64429927
-24-12-2024 00:49:39 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.64429903
-24-12-2024 00:49:39 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.64429885
-24-12-2024 00:49:39 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.64429873
-24-12-2024 00:49:39 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.6442986
-24-12-2024 00:49:39 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.6442986
-24-12-2024 00:49:39 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.64429843
-24-12-2024 00:49:40 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.64429843
-24-12-2024 00:49:40 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.6442984
-24-12-2024 00:49:40 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.6442984
-24-12-2024 00:49:40 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.64429843
-24-12-2024 00:49:40 [INFO] [one_hidden_layer_nn::helper] train accuracy: 48.00
-24-12-2024 00:49:40 [INFO] [one_hidden_layer_nn::helper] test accuracy: 53.00
-24-12-2024 00:49:40 [INFO] [one_hidden_layer_nn::helper] meshgrid xx is: [[-10.464954, -10.464954, -10.464954, -10.464954, -10.464954, ..., -10.464954, -10.464954, -10.464954, -10.464954, -10.464954],
- [-10.444037, -10.444037, -10.444037, -10.444037, -10.444037, ..., -10.444037, -10.444037, -10.444037, -10.444037, -10.444037],
- [-10.42312, -10.42312, -10.42312, -10.42312, -10.42312, ..., -10.42312, -10.42312, -10.42312, -10.42312, -10.42312],
- [-10.402203, -10.402203, -10.402203, -10.402203, -10.402203, ..., -10.402203, -10.402203, -10.402203, -10.402203, -10.402203],
- [-10.381285, -10.381285, -10.381285, -10.381285, -10.381285, ..., -10.381285, -10.381285, -10.381285, -10.381285, -10.381285],
- ...,
- [10.347824, 10.347824, 10.347824, 10.347824, 10.347824, ..., 10.347824, 10.347824, 10.347824, 10.347824, 10.347824],
- [10.368742, 10.368742, 10.368742, 10.368742, 10.368742, ..., 10.368742, 10.368742, 10.368742, 10.368742, 10.368742],
- [10.389658, 10.389658, 10.389658, 10.389658, 10.389658, ..., 10.389658, 10.389658, 10.389658, 10.389658, 10.389658],
- [10.410576, 10.410576, 10.410576, 10.410576, 10.410576, ..., 10.410576, 10.410576, 10.410576, 10.410576, 10.410576],
- [10.431494, 10.431494, 10.431494, 10.431494, 10.431494, ..., 10.431494, 10.431494, 10.431494, 10.431494, 10.431494]], shape=[1000, 1000], strides=[1000, 1], layout=Cc (0x5), const ndim=2 
-24-12-2024 00:49:40 [INFO] [one_hidden_layer_nn::helper] meshgrid yy is: [[-10.45597, -10.45597, -10.45597, -10.45597, -10.45597, ..., -10.45597, -10.45597, -10.45597, -10.45597, -10.45597],
- [-10.435074, -10.435074, -10.435074, -10.435074, -10.435074, ..., -10.435074, -10.435074, -10.435074, -10.435074, -10.435074],
- [-10.414177, -10.414177, -10.414177, -10.414177, -10.414177, ..., -10.414177, -10.414177, -10.414177, -10.414177, -10.414177],
- [-10.393281, -10.393281, -10.393281, -10.393281, -10.393281, ..., -10.393281, -10.393281, -10.393281, -10.393281, -10.393281],
- [-10.372385, -10.372385, -10.372385, -10.372385, -10.372385, ..., -10.372385, -10.372385, -10.372385, -10.372385, -10.372385],
- ...,
- [10.335784, 10.335784, 10.335784, 10.335784, 10.335784, ..., 10.335784, 10.335784, 10.335784, 10.335784, 10.335784],
- [10.356681, 10.356681, 10.356681, 10.356681, 10.356681, ..., 10.356681, 10.356681, 10.356681, 10.356681, 10.356681],
- [10.377578, 10.377578, 10.377578, 10.377578, 10.377578, ..., 10.377578, 10.377578, 10.377578, 10.377578, 10.377578],
- [10.398473, 10.398473, 10.398473, 10.398473, 10.398473, ..., 10.398473, 10.398473, 10.398473, 10.398473, 10.398473],
- [10.41937, 10.41937, 10.41937, 10.41937, 10.41937, ..., 10.41937, 10.41937, 10.41937, 10.41937, 10.41937]], shape=[1000, 1000], strides=[1000, 1], layout=Cc (0x5), const ndim=2 
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.63943756
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.63921326
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.63921016
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.6392088
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.63920784
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.6392069
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.63920623
+24-12-2024 06:59:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.63920575
+24-12-2024 06:59:10 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.6392054
+24-12-2024 06:59:10 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.6392051
+24-12-2024 06:59:10 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.6392048
+24-12-2024 06:59:10 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.6392045
+24-12-2024 06:59:10 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.6392042
+24-12-2024 06:59:10 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.63920414
+24-12-2024 06:59:10 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.639204
+24-12-2024 06:59:10 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.63920397
+24-12-2024 06:59:10 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.63920397
+24-12-2024 06:59:11 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.63920385
+24-12-2024 06:59:11 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.6392037
+24-12-2024 06:59:11 [INFO] [one_hidden_layer_nn::helper] train accuracy: 48.40
+24-12-2024 06:59:11 [INFO] [one_hidden_layer_nn::helper] test accuracy: 48.00
+24-12-2024 06:59:11 [INFO] [one_hidden_layer_nn::helper] meshgrid xx.t shape is: [1000, 1000] 
+24-12-2024 06:59:11 [INFO] [one_hidden_layer_nn::helper] meshgrid yy.t is: [1000, 1000] 
+24-12-2024 07:02:52 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 07:02:52 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 07:02:52 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 07:02:52 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 07:02:52 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 07:02:52 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 07:02:52 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 07:02:52 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.6377298
+24-12-2024 07:02:53 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.63749665
+24-12-2024 07:02:53 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.63749474
+24-12-2024 07:02:53 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.6374945
+24-12-2024 07:02:53 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.6374943
+24-12-2024 07:02:53 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.63749415
+24-12-2024 07:02:53 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.637494
+24-12-2024 07:02:53 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.63749397
+24-12-2024 07:02:53 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.63749385
+24-12-2024 07:02:53 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.6374938
+24-12-2024 07:02:54 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.63749367
+24-12-2024 07:02:54 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.63749367
+24-12-2024 07:02:54 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.63749367
+24-12-2024 07:02:54 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.63749367
+24-12-2024 07:02:54 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.63749367
+24-12-2024 07:02:54 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.63749367
+24-12-2024 07:02:54 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.6374936
+24-12-2024 07:02:54 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.63749367
+24-12-2024 07:02:54 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.63749367
+24-12-2024 07:02:55 [INFO] [one_hidden_layer_nn::helper] train accuracy: 48.70
+24-12-2024 07:02:55 [INFO] [one_hidden_layer_nn::helper] test accuracy: 50.00
+24-12-2024 07:02:55 [INFO] [one_hidden_layer_nn::helper] meshgrid x.t shape is: [1000] 
+24-12-2024 07:02:55 [INFO] [one_hidden_layer_nn::helper] meshgrid y.t shape is: [1000] 
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.64008796
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.6398668
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.6398639
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.63986266
+24-12-2024 07:31:43 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.6398617
+24-12-2024 07:31:44 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.63986087
+24-12-2024 07:31:44 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.6398603
+24-12-2024 07:31:44 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.63985986
+24-12-2024 07:31:44 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.6398594
+24-12-2024 07:31:44 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.63985914
+24-12-2024 07:31:44 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.6398588
+24-12-2024 07:31:44 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.6398586
+24-12-2024 07:31:44 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.6398584
+24-12-2024 07:31:44 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.6398583
+24-12-2024 07:31:44 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.6398581
+24-12-2024 07:31:45 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.6398581
+24-12-2024 07:31:45 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.63985807
+24-12-2024 07:31:45 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.639858
+24-12-2024 07:31:45 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.63985795
+24-12-2024 07:31:45 [INFO] [one_hidden_layer_nn::helper] train accuracy: 48.70
+24-12-2024 07:31:45 [INFO] [one_hidden_layer_nn::helper] test accuracy: 44.00
+24-12-2024 07:31:45 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.6440084
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.64379126
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.6437892
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.6437885
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.64378816
+24-12-2024 07:33:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.6437878
+24-12-2024 07:33:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.64378744
+24-12-2024 07:33:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.64378726
+24-12-2024 07:33:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.6437871
+24-12-2024 07:33:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.64378697
+24-12-2024 07:33:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.6437867
+24-12-2024 07:33:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.6437867
+24-12-2024 07:33:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.64378655
+24-12-2024 07:33:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.64378655
+24-12-2024 07:33:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.6437865
+24-12-2024 07:33:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.6437865
+24-12-2024 07:33:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.6437865
+24-12-2024 07:33:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.6437863
+24-12-2024 07:33:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.6437864
+24-12-2024 07:33:06 [INFO] [one_hidden_layer_nn::helper] train accuracy: 48.50
+24-12-2024 07:33:06 [INFO] [one_hidden_layer_nn::helper] test accuracy: 48.00
+24-12-2024 07:33:06 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
+24-12-2024 07:37:07 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 07:37:07 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 07:37:07 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 07:37:07 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 07:37:07 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 07:37:07 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 07:37:07 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 07:37:07 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.64286447
+24-12-2024 07:37:07 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.6426571
+24-12-2024 07:37:08 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.6426543
+24-12-2024 07:37:08 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.64265287
+24-12-2024 07:37:08 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.6426519
+24-12-2024 07:37:08 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.6426511
+24-12-2024 07:37:08 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.64265037
+24-12-2024 07:37:08 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.6426499
+24-12-2024 07:37:08 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.64264953
+24-12-2024 07:37:08 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.6426492
+24-12-2024 07:37:08 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.64264894
+24-12-2024 07:37:08 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.64264876
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.6426485
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.64264846
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.64264834
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.6426482
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.6426481
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.6426481
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.642648
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] train accuracy: 47.60
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] test accuracy: 49.00
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] meshgrid model.w shape is: [1, 1] 
+24-12-2024 07:37:09 [INFO] [one_hidden_layer_nn::helper] meshgrid model.b is: 0.0 
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.6449658
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.6447701
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.6447642
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.64476025
+24-12-2024 07:41:18 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.64475733
+24-12-2024 07:41:19 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.6447549
+24-12-2024 07:41:19 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.6447529
+24-12-2024 07:41:19 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.6447515
+24-12-2024 07:41:19 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.6447502
+24-12-2024 07:41:19 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.6447492
+24-12-2024 07:41:19 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.6447483
+24-12-2024 07:41:19 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.64474773
+24-12-2024 07:41:19 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.6447472
+24-12-2024 07:41:19 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.6447469
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.6447465
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.64474636
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.64474607
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.6447459
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.6447458
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn::helper] train accuracy: 49.70
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn::helper] test accuracy: 49.00
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn] main train_x shape is: [2, 1000] 
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn] main model.w shape is: [1, 1] 
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn] main model.b is: 0.0 
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn::helper] meshgrid model.w shape is: [1, 1] 
+24-12-2024 07:41:20 [INFO] [one_hidden_layer_nn::helper] meshgrid model.b is: 0.0 
+24-12-2024 07:47:40 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 07:47:40 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 07:47:40 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 07:47:40 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 07:47:40 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 07:47:40 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 07:47:40 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 07:47:40 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.6412783
+24-12-2024 07:47:40 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.6410343
+24-12-2024 07:47:41 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.6410325
+24-12-2024 07:47:41 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.6410325
+24-12-2024 07:47:41 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.64103246
+24-12-2024 07:47:41 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.64103246
+24-12-2024 07:47:41 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.64103246
+24-12-2024 07:47:41 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.6410325
+24-12-2024 07:47:41 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.64103246
+24-12-2024 07:47:41 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.6410325
+24-12-2024 07:47:41 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.6410326
+24-12-2024 07:47:41 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.6410325
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.6410325
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.6410324
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.64103246
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.6410324
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.64103246
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.6410325
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.64103246
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] train accuracy: 50.40
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] test accuracy: 52.00
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] helper fit_logistic_regression_model model_results.w shape is: [2, 1] 
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] helper fit_logistic_regression_model model_results.b is: -3.714069e-5 
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn] main train_x shape is: [2, 1000] 
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn] main model.w shape is: [1, 1] 
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn] main model.b is: 0.0 
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] meshgrid model.w shape is: [1, 1] 
+24-12-2024 07:47:42 [INFO] [one_hidden_layer_nn::helper] meshgrid model.b is: 0.0 
+24-12-2024 07:50:04 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 07:50:04 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 07:50:04 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 07:50:04 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 07:50:04 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 07:50:04 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 07:50:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 07:50:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.6380509
+24-12-2024 07:50:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.6377854
+24-12-2024 07:50:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.63778335
+24-12-2024 07:50:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.6377832
+24-12-2024 07:50:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.6377832
+24-12-2024 07:50:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.6377832
+24-12-2024 07:50:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.6377831
+24-12-2024 07:50:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.63778317
+24-12-2024 07:50:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.6377831
+24-12-2024 07:50:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.6377831
+24-12-2024 07:50:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.6377831
+24-12-2024 07:50:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.63778317
+24-12-2024 07:50:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.6377831
+24-12-2024 07:50:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.63778293
+24-12-2024 07:50:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.6377831
+24-12-2024 07:50:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.637783
+24-12-2024 07:50:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.637783
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.63778293
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.637783
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn::helper] train accuracy: 50.70
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn::helper] test accuracy: 52.00
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn::helper] helper fit_logistic_regression_model model_results.w shape is: [2, 1] 
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn::helper] helper fit_logistic_regression_model model_results.b is: 0.001860035 
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn] main train_x shape is: [2, 1000] 
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn] main model.w shape is: [2, 1] 
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn] main model.b is: 0.001860035 
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn::helper] meshgrid model.w shape is: [2, 1] 
+24-12-2024 07:50:07 [INFO] [one_hidden_layer_nn::helper] meshgrid model.b is: 0.001860035 
+24-12-2024 08:05:13 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 08:05:13 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 08:05:13 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 08:05:13 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 08:05:13 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 08:05:13 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 08:05:13 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 08:05:13 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.64275473
+24-12-2024 08:05:13 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.6425403
+24-12-2024 08:05:13 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.6425388
+24-12-2024 08:05:13 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.64253855
+24-12-2024 08:05:14 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.64253855
+24-12-2024 08:05:14 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.6425385
+24-12-2024 08:05:14 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.6425384
+24-12-2024 08:05:14 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.6425383
+24-12-2024 08:05:14 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.6425383
+24-12-2024 08:05:14 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.6425383
+24-12-2024 08:05:14 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.6425383
+24-12-2024 08:05:14 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.6425383
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.6425383
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.6425383
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.6425383
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.6425383
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.6425383
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.64253825
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.6425383
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn::helper] train accuracy: 48.60
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn::helper] test accuracy: 45.00
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn] main train_x shape is: [2, 1000] 
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn] main model.w shape is: [2, 1] 
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn] main model.b is: -0.002257068 
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
+24-12-2024 08:05:15 [INFO] [one_hidden_layer_nn::helper] meshgrid prediction shape is: [1, 1000] 
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.6422102
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.6419967
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.64199543
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.64199525
+24-12-2024 08:06:04 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.6419954
+24-12-2024 08:06:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.64199543
+24-12-2024 08:06:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.6419953
+24-12-2024 08:06:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.6419954
+24-12-2024 08:06:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.6419954
+24-12-2024 08:06:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.6419954
+24-12-2024 08:06:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.6419954
+24-12-2024 08:06:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.6419953
+24-12-2024 08:06:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.6419953
+24-12-2024 08:06:05 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.6419953
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.6419954
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.6419954
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.6419953
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.64199525
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.6419953
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn::helper] train accuracy: 48.20
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn::helper] test accuracy: 47.00
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn] main train_x shape is: [2, 1000] 
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn] main model.w shape is: [2, 1] 
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn] main model.b is: 0.0005454272 
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn::helper] meshgrid prediction shape is: [1, 1000] 
+24-12-2024 08:06:06 [INFO] [one_hidden_layer_nn::helper] meshgrid prediction is: [[1.0, 1.0, 1.0, 1.0, 1.0, ..., 0.0, 0.0, 0.0, 0.0, 0.0]], shape=[1, 1000], strides=[1000, 1], layout=CFcf (0xf), const ndim=2 
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.641128
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.6408872
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.64088345
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.6408817
+24-12-2024 08:12:48 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.6408801
+24-12-2024 08:12:49 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.6408792
+24-12-2024 08:12:49 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.6408783
+24-12-2024 08:12:49 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.64087754
+24-12-2024 08:12:49 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.64087695
+24-12-2024 08:12:49 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.64087665
+24-12-2024 08:12:49 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.6408761
+24-12-2024 08:12:49 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.64087594
+24-12-2024 08:12:49 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.64087576
+24-12-2024 08:12:49 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.64087534
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.6408754
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.6408752
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.6408751
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.64087504
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.640875
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn::helper] train accuracy: 49.20
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn::helper] test accuracy: 47.00
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn] main train_x shape is: [2, 1000] 
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn] main model.w shape is: [2, 1] 
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn] main model.b is: -0.010483417 
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn::helper] meshgrid prediction shape is: [1, 1000] 
+24-12-2024 08:12:50 [INFO] [one_hidden_layer_nn::helper] meshgrid prediction is: [[1.0, 1.0, 1.0, 1.0, 1.0, ..., 0.0, 0.0, 0.0, 0.0, 0.0]], shape=[1, 1000], strides=[1000, 1], layout=CFcf (0xf), const ndim=2 
+24-12-2024 08:14:32 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 1000]
+24-12-2024 08:14:32 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 1000]
+24-12-2024 08:14:32 [INFO] [one_hidden_layer_nn] There are m = 1000 training examples 
+24-12-2024 08:14:32 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 100]
+24-12-2024 08:14:32 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 100]
+24-12-2024 08:14:32 [INFO] [one_hidden_layer_nn] There are m = 100 testing examples 
+24-12-2024 08:14:32 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 0: 0.6931464
+24-12-2024 08:14:32 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 100: 0.6503534
+24-12-2024 08:14:33 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 200: 0.65017074
+24-12-2024 08:14:33 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 300: 0.65016955
+24-12-2024 08:14:33 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 400: 0.65016955
+24-12-2024 08:14:33 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 500: 0.6501696
+24-12-2024 08:14:33 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 600: 0.6501696
+24-12-2024 08:14:33 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 700: 0.6501696
+24-12-2024 08:14:33 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 800: 0.65016955
+24-12-2024 08:14:33 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 900: 0.65016955
+24-12-2024 08:14:33 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1000: 0.65016955
+24-12-2024 08:14:33 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1100: 0.65016955
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1200: 0.65016955
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1300: 0.65016955
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1400: 0.65016955
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1500: 0.65016955
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1600: 0.65016955
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1700: 0.6501695
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1800: 0.65016955
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] Cost after iteration 1900: 0.6501695
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] train accuracy: 46.70
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] test accuracy: 50.00
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn] main train_x shape is: [2, 1000] 
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn] main model.w shape is: [2, 1] 
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn] main model.b is: -0.00077847566 
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] meshgrid xx shape is: [2, 1000] 
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] meshgrid prediction shape is: [1, 1000] 
+24-12-2024 08:14:34 [INFO] [one_hidden_layer_nn::helper] meshgrid prediction is: [[1.0, 1.0, 1.0, 1.0, 1.0, ..., 0.0, 0.0, 0.0, 0.0, 0.0]], shape=[1, 1000], strides=[1000, 1], layout=CFcf (0xf), const ndim=2 
