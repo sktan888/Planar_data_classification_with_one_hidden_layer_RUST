@@ -31,11 +31,11 @@ RUST implementation of one layer neural network for planar data classification.
 
 ## Steps
     - Injest the flower plannar dataset
-        - ![Train Dataset](assets/images/train_dataset.png)
-        - ![Test Dataset](assets/images/train_dataset.png)
+        - ![Train Dataset](./assets/images/train_dataset.png)
+        - ![Test Dataset](./assets/images/train_dataset.png)
     - Linear regression 
-        - ![Decision Boundary](assets/images/decision_boundary.png)
-        - ![Costs](assets/images/costs.png)
+        - ![Decision Boundary](./assets/images/decision_boundary.png)
+        - ![Costs](./assets/images/costs.png)
 	- Implement a 2-class classification neural network with a single hidden layer
     - Use the non-linear tanh activation function for hidden layer
     - Compute the cross entropy loss
