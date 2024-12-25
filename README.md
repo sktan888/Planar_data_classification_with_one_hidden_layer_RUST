@@ -31,7 +31,7 @@ RUST implementation of one layer neural network for planar data classification.
 
 ## Steps
     - Injest the flower plannar dataset
-        - ![Train Dataset](./one_hidden_layer_nn/assets/images/train_dataset.png)
+        - ![Train Dataset](one_hidden_layer_nn/assets/images/train_dataset.png)
         - ![Test Dataset](./one_hidden_layer_nn/assets/images/train_dataset.png)
     - Linear regression not more than 60%
         - ![Decision Boundary](./one_hidden_layer_nn/assets/images/decision_boundary.png)
