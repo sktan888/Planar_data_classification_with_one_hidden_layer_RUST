@@ -259,7 +259,7 @@ pub fn model(
     };
 
     let (w, b, _dw, _db, costs) = (results.w, results.b, results.dw, results.db, results.costs);
- 
+
     // plot costs
     let plot_title = "costs";
     plot_costs(costs.clone(), plot_title);

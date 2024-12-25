@@ -22,20 +22,18 @@ use crate::helper::ModelResults;
 use crate::helper::PredictionResults;
 
 pub fn plot_costs(c: Vec<f32>, plot_title: &str) -> Plot {
-
-
     let y_data: Vec<f32> = c.clone();
 
     let n = y_data.len(); // Number of elements in the vector
-    let mut x_data: Vec<f32> = Vec::with_capacity(n); 
+    let mut x_data: Vec<f32> = Vec::with_capacity(n);
     for i in 1..=n {
-        x_data.push(i as f32); 
+        x_data.push(i as f32);
     }
 
     let trace = Scatter::new(x_data, y_data)
-    .name("cost")
-    .mode(Mode::Markers)
-    .marker(Marker::new().color(NamedColor::Green).size(8));
+        .name("cost")
+        .mode(Mode::Markers)
+        .marker(Marker::new().color(NamedColor::Green).size(8));
 
     let mut plot = Plot::new();
 
