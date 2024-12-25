@@ -4,10 +4,11 @@ use log::LevelFilter;
 use ndarray::Array2;
 use one_hidden_layer_nn::data::injest;
 use one_hidden_layer_nn::helper::fit_logistic_regression_model;
-use one_hidden_layer_nn::helper::plot;
-use one_hidden_layer_nn::helper::plot_decision_boundary;
-use one_hidden_layer_nn::helper::simple_contour_plot;
+use one_hidden_layer_nn::plot::plot;
+use one_hidden_layer_nn::plot::plot_decision_boundary;
+use one_hidden_layer_nn::plot::simple_contour_plot;
 use one_hidden_layer_nn::helper::ModelResults;
+
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Initialize the logger
@@ -45,7 +46,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     info!("The shape of y is: {:?}", shape_y);
     info!("There are m = {:?} training examples ", m_examples);
 
-
     let (test_x, test_y) = injest(m_test, a);
 
     let shape_x = test_x.shape();
@@ -62,14 +62,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Visualise datasets
     let plot_title = "train dataset";
-    plot(&train_x, &train_y, a, plot_title);
+    let mut plot_main = plot(&train_x, &train_y, a, plot_title);
 
     let plot_title = "test dataset";
-    plot(&test_x, &test_y, a, plot_title);
+    let _ = plot(&test_x, &test_y, a, plot_title);
 
     //let _ = linfa_logistic_regression();
 
-    let mut modelLR = ModelResults {
+    let mut model_lr = ModelResults {
         costs: Vec::new(),
         y_prediction_test: Array2::zeros((1, m_test)),
         y_prediction_train: Array2::zeros((1, m_train)),
@@ -84,7 +84,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     match model_result {
         Ok(model_results) => {
             // Process the successful predictions
-            modelLR = model_results;
+            model_lr = model_results;
         }
         Err(error) => {
             // Handle the error
@@ -92,15 +92,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
 
-    info!("main train_x shape is: {:?} ", train_x.shape());
-    info!("main model.w shape is: {:?} ", modelLR.w.shape());
-    info!("main model.b is: {:?} ", modelLR.b);
+    //info!("main train_x shape is: {:?} ", train_x.shape());
+    //info!("main model.w shape is: {:?} ", model_lr.w.shape());
+    //info!("main model.b is: {:?} ", model_lr.b);
 
     let plot_title = "decision boundary";
-    plot_decision_boundary(&train_x, modelLR, plot_title);
+    plot_decision_boundary(&train_x, model_lr, plot_title, plot_main);
 
     //compute_accuracy(modelLR, train_y, test_y);
 
-    //simple_contour_plot(plot_title);
+    //simple_contour_plot(plot_title); // trying out example contour plot codes from plotly
+
     Ok(())
 }
