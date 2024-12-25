@@ -5,19 +5,33 @@ use ndarray::{linspace, Array1, Array2};
 use rand::thread_rng;
 use rand::Rng;
 
-pub fn injest(m: usize, a: i32) -> (Array2<f32>, Array2<f32>) {
+pub fn injest(m: usize, a: i32, title: &str) -> (Array2<f32>, Array2<f32>) {
     /*
         Load dataset
 
         Arguments:
-        none
+        m -- number of examples
+        a -- length of flower petal
+        title -- name of dataset
 
         Return:
-        X -- (2, 400) array
-        Y -- (1, 400) array
+        X -- (features, examples) array
+        Y -- (1, examples) array
     */
 
     let (x, y) = generate_flower_planar_dataset(m, a); // Loading data
+
+    let shape_x = x.shape();
+    let shape_y = y.shape();
+    let m_examples = shape_y[1];
+
+    println!("The shape of x is: {:?} in {:?}", shape_x, title);
+    println!("The shape of y is: {:?} in {:?}", shape_y, title);
+    println!("There are m = {:?} examples in {:?}", m_examples, title);
+
+    info!("The shape of x is: {:?} in {:?}", shape_x, title);
+    info!("The shape of y is: {:?} in {:?}", shape_y, title);
+    info!("There are m = {:?} examples in {:?}", m_examples, title);
 
     (x, y)
 }

@@ -12,14 +12,77 @@ use std::error::Error;
 use std::fs::File;
 use std::io::Write;
 
-use crate::helper::find_minimum;
 use crate::helper::find_maximum;
+use crate::helper::find_minimum;
 use crate::helper::meshgrid;
 use crate::linear_regression::predict;
 
-use crate::helper::ModelResults;
 use crate::helper::GradientDescentResults;
+use crate::helper::ModelResults;
 use crate::helper::PredictionResults;
+
+pub fn plot_costs(c: Vec<f32>, plot_title: &str) -> Plot {
+
+
+    let y_data: Vec<f32> = c.clone();
+
+    let n = y_data.len(); // Number of elements in the vector
+    let mut x_data: Vec<f32> = Vec::with_capacity(n); 
+    for i in 1..=n {
+        x_data.push(i as f32); 
+    }
+
+    let trace = Scatter::new(x_data, y_data)
+    .name("cost")
+    .mode(Mode::Markers)
+    .marker(Marker::new().color(NamedColor::Green).size(8));
+
+    let mut plot = Plot::new();
+
+    plot.add_trace(trace);
+
+    let layout = Layout::new()
+        .title(plot_title)
+        .width(500)
+        .height(500)
+        .x_axis(
+            Axis::new()
+                .title("iterations")
+                .grid_color(Rgb::new(211, 211, 211))
+                //.range(vec![-a, a])
+                .show_grid(true)
+                .show_line(true)
+                .show_tick_labels(true)
+                .tick_color(Rgb::new(127, 127, 127))
+                .ticks(TicksDirection::Outside)
+                .zero_line(false),
+        )
+        .y_axis(
+            Axis::new()
+                .title("cost")
+                .grid_color(Rgb::new(211, 211, 211))
+                //.range(vec![-a, a])
+                .show_grid(true)
+                .show_line(true)
+                .show_tick_labels(true)
+                .tick_color(Rgb::new(127, 127, 127))
+                .ticks(TicksDirection::Outside)
+                .zero_line(false),
+        );
+    plot.set_layout(layout);
+
+    let html = plot.to_html();
+
+    let str1 = "./plots/";
+    let str2 = ".html";
+    let joined_string = format!("{}{}", str1, plot_title);
+    let path = format!("{}{}", joined_string, str2);
+    let mut file = File::create(path).expect("Error creating file");
+    file.write_all(html.as_bytes())
+        .expect("Error writing to file");
+
+    plot
+}
 
 pub fn plot(x: &Array2<f32>, _y: &Array2<f32>, a: i32, plot_title: &str) -> Plot {
     /*
@@ -164,25 +227,25 @@ pub fn plot_decision_boundary(
     // Set min and max values and some padding
     // Find the minimum value in each row
     let row = x.row(0).to_owned();
-    let mut x_min = 0.0 as f32;
+    let mut x_min = 0.0_f32;
     x_min = find_minimum(&row);
 
-    let mut x_max = 0.0 as f32;
+    let mut x_max = 0.0_f32;
     x_max = find_maximum(&row);
 
     let row = x.row(1).to_owned();
-    let mut y_min = 0.0 as f32;
+    let mut y_min = 0.0_f32;
     y_min = find_minimum(&row);
 
-    let mut y_max = 0.0 as f32;
+    let mut y_max = 0.0_f32;
     y_max = find_maximum(&row);
 
-    let h: usize = x.shape()[1] as usize; // number of examples
+    let h: usize = x.shape()[1]; // number of examples
     let x = linspace(x_min, x_max, h);
-    let mut x: Array1<f32> = x.collect(); // (m,1)
+    let x: Array1<f32> = x.collect(); // (m,1)
 
     let y = linspace(y_min, y_max, h);
-    let mut y: Array1<f32> = y.collect();
+    let y: Array1<f32> = y.collect();
 
     // Generate a 2D grid of points with distance h between them
     let xx = meshgrid(&x, &y); // xx is (features,number of points) (2,m)
@@ -217,7 +280,10 @@ pub fn plot_decision_boundary(
     */
 
     // Plot the contour and training examples
-    let trace3 = Contour::new(xx.row(0).to_vec(), xx.row(1).to_vec(), z.into_raw_vec());
+    // let trace3 = Contour::new(xx.row(0).to_vec(), xx.row(1).to_vec(), z.into_raw_vec());
+
+    let (z_ptr, _z_offset) = z.into_raw_vec_and_offset();
+    let trace3 = Contour::new(xx.row(0).to_vec(), xx.row(1).to_vec(), z_ptr);
 
     // let mut plot = Plot::new(); // using given plot from earlier
     plot.add_trace(trace3);
@@ -255,10 +321,7 @@ pub fn plot_decision_boundary(
 
     plot.set_layout(layout);
 
-    // adding text annotation
-
     let html = plot.to_html();
-
     let str1 = "./plots/";
     let str2 = ".html";
     let joined_string = format!("{}{}", str1, plot_title);

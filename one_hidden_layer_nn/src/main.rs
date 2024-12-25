@@ -7,7 +7,6 @@ use one_hidden_layer_nn::helper::fit_logistic_regression_model;
 use one_hidden_layer_nn::helper::ModelResults;
 use one_hidden_layer_nn::plot::plot;
 use one_hidden_layer_nn::plot::plot_decision_boundary;
-use one_hidden_layer_nn::plot::simple_contour_plot;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Initialize the logger
@@ -31,48 +30,28 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let train_test_split_ratio = 3;
     let m_test = m_train / train_test_split_ratio; // number of examples or points of test dataset
 
-    let (train_x, train_y) = injest(m_train, a);
+    let mut dataset_title = "train_dataset";
+    let (train_x, train_y) = injest(m_train, a, dataset_title);
 
-    let shape_x = train_x.shape();
-    let shape_y = train_y.shape();
-    let m_examples = shape_y[1];
-
-    println!("The shape of x is: {:?}", shape_x);
-    println!("The shape of y is: {:?}", shape_y);
-    println!("There are m = {:?} training examples ", m_examples);
-
-    info!("The shape of x is: {:?}", shape_x);
-    info!("The shape of y is: {:?}", shape_y);
-    info!("There are m = {:?} training examples ", m_examples);
-
-    let (test_x, test_y) = injest(m_test, a);
-
-    let shape_x = test_x.shape();
-    let shape_y = test_y.shape();
-    let m_examples = shape_y[1];
-
-    println!("The shape of x is: {:?}", shape_x);
-    println!("The shape of y is: {:?}", shape_y);
-    println!("There are m = {:?} testing examples ", m_examples);
-
-    info!("The shape of x is: {:?}", shape_x);
-    info!("The shape of y is: {:?}", shape_y);
-    info!("There are m = {:?} testing examples ", m_examples);
+    dataset_title = "test_dataset";
+    let (test_x, test_y) = injest(m_test, a, dataset_title);
 
     // Visualise datasets
-    let plot_title = "train dataset";
-    let mut plot_main = plot(&train_x, &train_y, a, plot_title);
+    let plot_title = "train_dataset";
+    let plot_main = plot(&train_x, &train_y, a, plot_title);
 
-    let plot_title = "test dataset";
+    let plot_title = "test_dataset";
     let _ = plot(&test_x, &test_y, a, plot_title);
 
-    //let _ = linfa_logistic_regression();
+    // linear regression model
+
+    // let _ = linfa_logistic_regression(); // testing of external linfa crate to be continued
 
     let mut model_lr = ModelResults {
         costs: Vec::new(),
         y_prediction_test: Array2::zeros((1, m_test)),
         y_prediction_train: Array2::zeros((1, m_train)),
-        w: Array2::zeros((shape_x[0], 1)),
+        w: Array2::zeros((test_x.shape()[0], 1)),
         b: 0.0,
         learning_rate: 0.0,
         num_iterations: 0,
@@ -91,16 +70,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
 
-    //info!("main train_x shape is: {:?} ", train_x.shape());
-    //info!("main model.w shape is: {:?} ", model_lr.w.shape());
-    //info!("main model.b is: {:?} ", model_lr.b);
-
-    let plot_title = "decision boundary";
+    // visualise the decision boundary plot
+    let plot_title = "decision_boundary";
     plot_decision_boundary(&train_x, model_lr, plot_title, plot_main);
 
-    //compute_accuracy(modelLR, train_y, test_y);
-
-    //simple_contour_plot(plot_title); // trying out example contour plot codes from plotly
+    // one hidden layer NN
 
     Ok(())
 }

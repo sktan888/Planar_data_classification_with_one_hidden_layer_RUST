@@ -72,7 +72,6 @@ pub struct PredictionResults {
     pub y_prediction_test: Array2<f32>,
 }
 
-
 fn create_array(b: f32) -> Result<Array2<f32>, Errors> {
     /* let result = Array2::from_shape_vec((1, 1), vec![b]).map_err(Errors::ShapeError);
     result */
@@ -212,8 +211,9 @@ pub fn linfa_logistic_regression() -> Result<(), Box<dyn Error>> {
 }
 
 pub fn find_minimum(row: &Array1<f32>) -> f32 {
-    let mut x_min = 0.0 as f32;
-    row.iter().enumerate().for_each(|(index, &value)| {
+    let mut x_min = 0.0_f32;
+    //row.iter().enumerate().for_each(|(_index, &value)| {
+    row.iter().for_each(|&value| {
         if value < x_min {
             x_min = value;
         }
@@ -224,8 +224,9 @@ pub fn find_minimum(row: &Array1<f32>) -> f32 {
 }
 
 pub fn find_maximum(row: &Array1<f32>) -> f32 {
-    let mut x_max = 0.0 as f32;
-    row.iter().enumerate().for_each(|(index, &value)| {
+    let mut x_max = 0.0_f32;
+    // row.iter().enumerate().for_each(|(_index, &value)| {
+    row.iter().for_each(|&value| {
         if value > x_max {
             x_max = value;
         }
@@ -247,11 +248,8 @@ pub fn meshgrid(x: &Array1<f32>, y: &Array1<f32>) -> Array2<f32> {
     2D array (number of features, number of points) ... (2,1000)
 
     */
-    let (nx, ny) = (x.len(), y.len());
+    let (nx, _ny) = (x.len(), y.len());
     let mut xx: Array2<f32> = Array2::zeros((2, nx));
-
-    //let mut xx = Array2::zeros((ny, nx));
-    //let mut yy = Array2::zeros((ny, nx));
 
     for (i, &x_val) in x.iter().enumerate() {
         xx[[0, i]] = x_val;
@@ -263,4 +261,3 @@ pub fn meshgrid(x: &Array1<f32>, y: &Array1<f32>) -> Array2<f32> {
 
     xx
 }
-

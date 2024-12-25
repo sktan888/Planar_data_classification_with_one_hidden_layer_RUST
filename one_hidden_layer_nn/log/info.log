@@ -82,3 +82,143 @@
 25-12-2024 05:14:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1900: 0.6431705
 25-12-2024 05:14:15 [INFO] [one_hidden_layer_nn::linear_regression] train accuracy: 50.00
 25-12-2024 05:14:15 [INFO] [one_hidden_layer_nn::linear_regression] test accuracy: 48.33
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 180]
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 180]
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn] There are m = 180 training examples 
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn] The shape of x is: [2, 60]
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn] The shape of y is: [1, 60]
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn] There are m = 60 testing examples 
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 0: 0.69314736
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 100: 0.63588524
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 200: 0.6356514
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 300: 0.63564986
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 400: 0.63564974
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 500: 0.6356498
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 600: 0.6356497
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 700: 0.63564974
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 800: 0.63564974
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 900: 0.6356498
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1000: 0.6356497
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1100: 0.6356497
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1200: 0.6356497
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1300: 0.6356496
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1400: 0.6356497
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1500: 0.6356496
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1600: 0.6356497
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1700: 0.6356497
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1800: 0.6356496
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1900: 0.6356496
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] train accuracy: 50.00
+25-12-2024 05:26:27 [INFO] [one_hidden_layer_nn::linear_regression] test accuracy: 46.67
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::data] The shape of x is: [2, 180]
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::data] The shape of y is: [1, 180]
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::data] There are m = 180 examples in "train_dataset"
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::data] The shape of x is: [2, 60]
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::data] The shape of y is: [1, 60]
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::data] There are m = 60 examples in "test_dataset"
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 0: 0.69314736
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 100: 0.6438002
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 200: 0.643563
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 300: 0.643558
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 400: 0.64355534
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 500: 0.6435534
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 600: 0.64355165
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 700: 0.64355034
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 800: 0.64354926
+25-12-2024 05:50:07 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 900: 0.64354837
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1000: 0.6435478
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1100: 0.64354724
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1200: 0.6435468
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1300: 0.6435465
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1400: 0.6435462
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1500: 0.6435461
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1600: 0.6435458
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1700: 0.6435457
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1800: 0.6435455
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1900: 0.6435455
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] train accuracy: 47.22
+25-12-2024 05:50:08 [INFO] [one_hidden_layer_nn::linear_regression] test accuracy: 46.67
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::data] The shape of x is: [2, 180] in "train_dataset"
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::data] The shape of y is: [1, 180] in "train_dataset"
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::data] There are m = 180 examples in "train_dataset"
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::data] The shape of x is: [2, 60] in "test_dataset"
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::data] The shape of y is: [1, 60] in "test_dataset"
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::data] There are m = 60 examples in "test_dataset"
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 0: 0.69314736
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 100: 0.6389435
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 200: 0.6386878
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 300: 0.63867843
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 400: 0.6386721
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 500: 0.6386673
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 600: 0.63866335
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 700: 0.6386602
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 800: 0.6386577
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 900: 0.6386557
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1000: 0.63865405
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1100: 0.6386528
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1200: 0.6386517
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1300: 0.63865095
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1400: 0.6386503
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1500: 0.6386498
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1600: 0.63864934
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1700: 0.63864905
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1800: 0.63864875
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1900: 0.6386486
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] train accuracy: 49.44
+25-12-2024 05:53:15 [INFO] [one_hidden_layer_nn::linear_regression] test accuracy: 48.33
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::data] The shape of x is: [2, 180] in "train_dataset"
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::data] The shape of y is: [1, 180] in "train_dataset"
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::data] There are m = 180 examples in "train_dataset"
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::data] The shape of x is: [2, 60] in "test_dataset"
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::data] The shape of y is: [1, 60] in "test_dataset"
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::data] There are m = 60 examples in "test_dataset"
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 0: 0.69314736
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 100: 0.6386657
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 200: 0.63836795
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 300: 0.63835
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 400: 0.63833743
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 500: 0.63832736
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 600: 0.63831925
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 700: 0.6383128
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 800: 0.6383078
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 900: 0.6383036
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1000: 0.6383003
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1100: 0.6382977
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1200: 0.63829553
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1300: 0.63829386
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1400: 0.63829255
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1500: 0.6382914
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1600: 0.6382906
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1700: 0.63828987
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1800: 0.63828933
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1900: 0.63828886
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] train accuracy: 50.56
+25-12-2024 06:30:00 [INFO] [one_hidden_layer_nn::linear_regression] test accuracy: 48.33
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::data] The shape of x is: [2, 180] in "train_dataset"
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::data] The shape of y is: [1, 180] in "train_dataset"
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::data] There are m = 180 examples in "train_dataset"
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::data] The shape of x is: [2, 60] in "test_dataset"
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::data] The shape of y is: [1, 60] in "test_dataset"
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::data] There are m = 60 examples in "test_dataset"
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 0: 0.69314736
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 100: 0.6376716
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 200: 0.63748515
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 300: 0.6374822
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 400: 0.6374806
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 500: 0.63747925
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 600: 0.63747823
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 700: 0.63747746
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 800: 0.6374768
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 900: 0.63747627
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1000: 0.63747585
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1100: 0.6374755
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1200: 0.63747513
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1300: 0.637475
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1400: 0.6374747
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1500: 0.6374747
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1600: 0.6374746
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1700: 0.6374745
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1800: 0.63747436
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] Cost after iteration 1900: 0.63747436
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] train accuracy: 48.33
+25-12-2024 06:31:42 [INFO] [one_hidden_layer_nn::linear_regression] test accuracy: 46.67

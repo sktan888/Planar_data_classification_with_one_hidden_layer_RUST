@@ -2,6 +2,8 @@ use crate::helper::Errors;
 use crate::helper::GradientDescentResults;
 use crate::helper::ModelResults;
 use crate::helper::PredictionResults;
+use crate::plot::plot_costs;
+
 use log::info;
 use ndarray::s;
 use ndarray::{linspace, Array1, Array2};
@@ -257,6 +259,10 @@ pub fn model(
     };
 
     let (w, b, _dw, _db, costs) = (results.w, results.b, results.dw, results.db, results.costs);
+ 
+    // plot costs
+    let plot_title = "costs";
+    plot_costs(costs.clone(), plot_title);
 
     let y_prediction_test_result = predict(&w, b, x_test);
     let y_prediction_train_result = predict(&w, b, x_train);
