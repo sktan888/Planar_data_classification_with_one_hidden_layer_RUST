@@ -4,11 +4,10 @@ use log::LevelFilter;
 use ndarray::Array2;
 use one_hidden_layer_nn::data::injest;
 use one_hidden_layer_nn::helper::fit_logistic_regression_model;
+use one_hidden_layer_nn::helper::ModelResults;
 use one_hidden_layer_nn::plot::plot;
 use one_hidden_layer_nn::plot::plot_decision_boundary;
 use one_hidden_layer_nn::plot::simple_contour_plot;
-use one_hidden_layer_nn::helper::ModelResults;
-
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Initialize the logger

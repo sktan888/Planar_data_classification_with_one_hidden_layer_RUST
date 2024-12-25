@@ -1,10 +1,10 @@
+use crate::helper::Errors;
+use crate::helper::GradientDescentResults;
+use crate::helper::ModelResults;
+use crate::helper::PredictionResults;
 use log::info;
 use ndarray::s;
 use ndarray::{linspace, Array1, Array2};
-use crate::helper::GradientDescentResults;
-use crate::helper::Errors;
-use crate::helper::ModelResults;
-use crate::helper::PredictionResults;
 
 pub fn sigmoid(z: Array2<f32>) -> Array2<f32> {
     /*

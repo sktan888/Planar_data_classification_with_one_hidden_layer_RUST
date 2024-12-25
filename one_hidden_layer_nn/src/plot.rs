@@ -13,7 +13,13 @@ use std::fs::File;
 use std::io::Write;
 
 use crate::helper::find_minimum;
+use crate::helper::find_maximum;
+use crate::helper::meshgrid;
+use crate::linear_regression::predict;
 
+use crate::helper::ModelResults;
+use crate::helper::GradientDescentResults;
+use crate::helper::PredictionResults;
 
 pub fn plot(x: &Array2<f32>, _y: &Array2<f32>, a: i32, plot_title: &str) -> Plot {
     /*
